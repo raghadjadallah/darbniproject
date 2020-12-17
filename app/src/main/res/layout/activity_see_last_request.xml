@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/drawerRequestReview"
+    android:layout_height="match_parent"
+    tools:context=".SeeLastRequest">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <include
+            layout="@layout/main_tool_bar"/>
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#fff4eb"
+            tools:context=".button">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/img1"
+                android:layout_width="181dp"
+                android:layout_height="236dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:translationY="-25dp"
+                android:src="@drawable/img10"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"/>
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="45dp"
+                android:backgroundTint="#ff6827"
+                android:text="Customied Requests"
+                android:onClick="SeeCustomizedRequest"
+                android:textStyle="bold|italic"
+                app:bootstrapSize="xl"
+                android:textSize="20pt"
+                app:buttonMode="regular"
+                app:roundedCorners="true"
+                app:showOutline="false"
+                app:bootstrapBrand="secondary"
+                android:fontFamily="@font/mmm"/>
+
+            <com.beardedhen.androidbootstrap.BootstrapButton
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="45dp"
+                android:backgroundTint="#ff6827"
+                android:text="Random Requests"
+                android:onClick="seeRandomRequest"
+                android:textStyle="bold|italic"
+                app:bootstrapBrand="secondary"
+                app:bootstrapSize="xl"
+                android:textSize="20pt"
+                app:buttonMode="regular"
+                app:roundedCorners="true"
+                app:showOutline="false"
+                android:fontFamily="@font/mmm"/>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:layout_gravity="start"
+        >
+        <include
+            layout="@layout/main_nav_drawer2"
+            />
+    </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

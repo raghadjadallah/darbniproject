@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Darabni</string>
+    <string-array name="City">
+        <item>Irbid</item>
+        <item>Ajloun</item>
+        <item>Jerash</item>
+        <item>Mafraq</item>
+        <item>Balqa</item>
+        <item>Amman</item>
+        <item>Zarqa</item>
+        <item>Madaba</item>
+        <item>Karak</item>
+        <item>Tafilah</item>
+        <item>Aqaba</item>
+
+    </string-array>
+    <string-array name="type">
+        <item>manual</item>
+        <item>automatic</item>
+    </string-array>
+
+    <string-array name="problems">
+        <item> Difference in price problem </item>
+        <item>time problem</item>
+        <item> respect problem</item>
+        <item>Other problem</item>
+    </string-array>
+</resources>

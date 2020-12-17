@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/drawerCarInfo"
+    android:layout_height="match_parent"
+    tools:context=".CarInfo">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <include
+            layout="@layout/main_tool_bar"/>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#fff4eb "
+            android:padding="20dp"
+            tools:context=".car_info">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/carimage"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    android:src="@drawable/img8"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/carmanufactor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Car Manufactor:"
+                android:textColor="#130400"
+                android:textStyle="bold"
+                android:fontFamily="@font/text3"
+                android:textSize="11pt"
+                />
+
+            <TextView
+                android:id="@+id/carname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Car Type:"
+                android:fontFamily="@font/text3"
+                android:textColor="#130400"
+                android:textStyle="bold"
+                android:textSize="11pt" />
+
+            <TextView
+                android:id="@+id/cargear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Gear box type :"
+                android:textColor="#130400"
+                android:textStyle="bold"
+                android:fontFamily="@font/text3"
+                android:textSize="11pt" />
+
+            <TextView
+                android:id="@+id/carmodel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Model:"
+                android:fontFamily="@font/text3"
+                android:textColor="#130400"
+                android:textStyle="bold"
+                android:textSize="11pt" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                >
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/b1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:backgroundTint="#ff6827"
+                    android:fontFamily="@font/mmm"
+                    android:text=" CANCEL "
+                    android:onClick="cancelCarInfoView"
+                    android:textStyle="bold|italic"
+                    app:bootstrapSize="xl"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true"
+                    app:showOutline="false"
+                    app:bootstrapBrand="secondary"/>
+
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="60dp"
+                    android:fontFamily="@font/mmm"
+                    android:layout_marginTop="35dp"
+                    android:backgroundTint="#ff6827"
+                    android:text="   NEXT     "
+                    android:onClick="goToSubmitRequest"
+                    app:bootstrapBrand="secondary"
+                    app:bootstrapSize="xl"
+                    android:textStyle="bold|italic"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true"
+                    app:showOutline="false" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:layout_gravity="start"
+        >
+        <include
+            layout="@layout/main_nav_drawer"
+            />
+    </RelativeLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

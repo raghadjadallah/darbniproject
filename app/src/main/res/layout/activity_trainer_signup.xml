@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    android:background="@drawable/dg2"
+    tools:context=".TrainerSignup">
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_marginTop="5dp"
+        android:layout_width="125dp"
+        android:layout_height="125dp"
+        android:src="@drawable/img3"
+        app:civ_border_width="2dp"
+        android:layout_gravity="center_horizontal"
+        app:civ_border_color="#FF000000"/>
+
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#130400"
+        android:text="Upload Image"
+        android:onClick="ChangeTrainerImage"
+        android:fontFamily="@font/mmm"
+
+        android:textStyle="bold|italic"
+        android:layout_gravity="center_horizontal"
+        app:bootstrapSize="xl"
+        app:buttonMode="regular"
+        app:roundedCorners="true"
+        app:showOutline="false"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Birthday:"
+        android:layout_marginTop="10dp"
+        android:textSize="11pt"
+        android:textStyle="bold"
+        android:fontFamily="@font/text3"
+        android:textColor="#130400"/>
+    <com.beardedhen.androidbootstrap.BootstrapEditText
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:bootstrapSize="md"
+        app:bootstrapBrand="info"
+        android:layout_marginTop="15dp"
+        android:inputType="date"
+        android:textColor="#130400" />
+
+    <TextView
+        android:id="@+id/txt_gender"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:text="Gender : "
+        android:textSize="11pt"
+        android:fontFamily="@font/text3"
+        android:textStyle="bold"
+        android:layout_marginVertical="15dp"
+        android:textColor="#130400"/>
+    <RadioGroup
+        android:id="@+id/rd_group"
+        android:layout_width="359dp"
+        android:layout_height="57dp"
+        android:layout_below="@id/txt_gender"
+        android:orientation="horizontal"
+        >
+
+        <RadioButton android:id="@+id/Rbtn_male"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:checked="true"
+            android:fontFamily="@font/text3"
+            android:textColor="#130400"
+            android:textStyle="bold"
+            android:onClick="genderSelection"
+            android:textSize="9pt"
+            android:layout_marginHorizontal="20dp"/>
+
+        <RadioButton android:id="@+id/Rbtn_female"
+            android:layout_width="114dp"
+            android:layout_height="wrap_content"
+            android:text="Female"
+            android:onClick="genderSelection"
+            android:fontFamily="@font/text3"
+            android:textColor="#130400"
+            android:textStyle="bold"
+            android:textSize="9pt"
+            android:layout_marginHorizontal="20dp"
+            />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/txt_trainType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Training Type : "
+        android:textSize="10pt"
+        android:textStyle="bold"
+        android:layout_marginBottom="15dp"
+        android:textColor="#130400"
+        android:fontFamily="@font/text3"
+        android:layout_below="@id/rd_group"
+
+        />
+
+    <Spinner android:id="@+id/spn_trainType2"
+        android:layout_width="match_parent"
+        android:layout_marginTop="-5dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/txt_trainType"
+        />
+    <com.beardedhen.androidbootstrap.BootstrapButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#130400"
+        android:layout_gravity="center"
+        android:text="COMPLETE REGISTRATION "
+        android:onClick="continueSignupAsTrainer"
+        app:bootstrapBrand="success"
+        android:fontFamily="@font/mmm"
+        android:layout_margin="15dp"
+        android:textStyle="bold|italic"
+        app:bootstrapSize="xl"
+        app:buttonMode="regular"
+        app:roundedCorners="true"
+        app:showOutline="false" />
+
+
+</LinearLayout>

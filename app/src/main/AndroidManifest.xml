@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.darabni">
+    <application
+        android:name=".parseStarter"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Design.NoActionBar">
+        <activity android:name=".requestList"></activity>
+        <activity android:name=".AddNewCar" />
+        <activity android:name=".AddNewCoach" />
+        <activity android:name=".SeeLastRequest" />
+        <activity android:name=".CenterMainScreen" />
+        <activity android:name=".sendRequest" />
+        <activity android:name=".CarInfo" />
+        <activity android:name=".ShowCoachInfo" />
+        <activity android:name=".searchForCoach" />
+        <activity android:name=".SearchForCenter" />
+        <activity android:name=".ModifyTrainerInfo" />
+        <activity android:name=".MainTrainerScreen" />
+        <activity android:name=".manageCenter" />
+        <activity android:name=".CenterInfoScreen" />
+        <activity android:name=".ReviewContent" />
+        <activity android:name=".ReviewsList" />
+        <activity android:name=".SuperVisorMainScreen" />
+        <activity android:name=".SuperVisorLogin" />
+        <activity android:name=".Resetpassword2" />
+        <activity android:name=".ResetPassword1" />
+        <activity android:name=".CenterSignup" />
+        <activity android:name=".TrainerSignup" />
+        <activity android:name=".Signup" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

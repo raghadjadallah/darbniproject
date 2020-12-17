@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_marginTop="80dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:onClick="HomeItemClicked"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:padding="12dp"
+            android:text="Home"
+            android:textColor="@color/black"
+            android:fontFamily="@font/mmm"
+            android:textSize="11pt"
+            android:layout_marginLeft="16dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:layout_marginRight="48dp"
+            android:src="@drawable/ic_home" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:onClick="UpdateAccountInfo"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:padding="12dp"
+            android:text="Update Account Info"
+            android:textColor="#130400"
+            android:textSize="11pt"
+            android:fontFamily="@font/mmm"
+            android:layout_marginLeft="16dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/ic_baseline_update_24"
+            android:layout_marginRight="48dp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:onClick="SeeMyRequest"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/mmm"
+            android:text="Last Request"
+            android:padding="12dp"
+            android:textColor="#130400"
+            android:textSize="11pt"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/ic_last_page"
+            android:layout_marginRight="48dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:onClick="SendSpecialRequest"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:text="Send Special Request"
+            android:padding="12dp"
+            android:textColor="#130400"
+            android:fontFamily="@font/mmm"
+            android:textSize="11pt"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/ic_send"
+            android:layout_marginRight="48dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:onClick="ClickAboutUS">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/mmm"
+            android:text="About  US"
+            android:padding="12dp"
+            android:textColor="#130400"
+            android:textSize="11pt"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/ic_info"
+            android:layout_marginRight="48dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:onClick="ClickLogout"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:fontFamily="@font/mmm"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:text="Logout"
+            android:textColor="#130400"
+            android:textSize="11pt"
+            android:layout_marginLeft="16dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:src="@drawable/ic_login"
+            android:layout_marginRight="48dp" />
+    </LinearLayout>
+</LinearLayout>

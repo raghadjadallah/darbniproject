@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/drawerCenterMain"
+    android:layout_height="match_parent"
+    tools:context=".CenterMainScreen">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <include
+            layout="@layout/main_tool_bar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#fff4eb"
+            tools:context=".MainActivity">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="140dp"
+                android:layout_margin="20dp"
+                android:layout_height="140dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="#FF000000"
+                android:layout_gravity="center"
+                android:src="@drawable/img1"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="25dp">
+
+                <Button
+                    android:id="@+id/coachinfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:background="#fff"
+                    android:fontFamily="@font/mmm"
+                    android:text="See Coach Info"
+                    android:onClick="goToSeeCoachInfo"
+                    android:layout_marginTop="19dp"
+                    android:textColor="@color/black"
+                    android:textSize="11pt" />
+
+                <Button
+                    android:id="@+id/updateInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:text="See Last Request"
+                    android:onClick="goToseeLastRequest"
+                    android:layout_marginTop="104dp"
+                    android:background="#fff"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/mmm"
+                    android:textSize="11pt"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:layout_gravity="start"
+        >
+        <include
+            layout="@layout/main_nav_drawer2"
+            />
+    </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
