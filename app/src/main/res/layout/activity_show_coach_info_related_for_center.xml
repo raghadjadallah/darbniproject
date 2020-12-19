@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/drawerCoachInfo"
+    android:layout_height="match_parent"
+    tools:context=".showCoachInfoRelatedForCenter">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            layout="@layout/main_tool_bar"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="#fff4eb "
+            android:padding="10dp"
+            tools:context=".coach_info">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/coachimage"
+                    android:src="@drawable/img1"
+                    android:layout_width="125dp"
+                    android:layout_height="125dp"
+                    app:civ_border_color="#FF000000"
+                    app:civ_border_width="2dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/coachname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/text3"
+                android:text="Coach Name :"
+                android:textColor="#130400"
+                android:textSize="11pt"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Coach Phone :"
+                android:textColor="#130400"
+                android:id="@+id/coachphone"
+                android:textStyle="bold"
+                android:fontFamily="@font/text3"
+                android:textSize="11pt" />
+            <TextView
+                android:id="@+id/coachaddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Address :"
+                android:textColor="#130400"
+                android:textStyle="bold"
+                android:fontFamily="@font/text3"
+                android:textSize="11pt"/>
+            <TextView
+                android:id="@+id/coachcost"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Session Cost :"
+                android:textColor="#130400"
+                android:textStyle="bold"
+                android:fontFamily="@font/text3"
+                android:textSize="11pt"/>
+            <TextView
+                android:id="@+id/coachtype"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Training Type :"
+                android:textColor="#130400"
+                android:textStyle="bold"
+                android:fontFamily="@font/text3"
+                android:textSize="11pt"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:orientation="horizontal"
+                >
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:id="@+id/b1"
+                    android:layout_width="140dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="51dp"
+                    android:backgroundTint="#ff6827"
+                    android:fontFamily="@font/mmm"
+                    android:text="CANCEL"
+                    android:onClick="cancelCoachInfoView"
+                    android:layout_marginLeft="10dp"
+                    android:textStyle="bold|italic"
+                    app:bootstrapSize="xl"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true"
+                    app:showOutline="false"
+                    app:bootstrapBrand="secondary"/>
+                <com.beardedhen.androidbootstrap.BootstrapButton
+                    android:layout_width="160dp"
+                    android:layout_height="80dp"
+                    android:fontFamily="@font/mmm"
+                    android:layout_marginTop="40dp"
+                    android:backgroundTint="#ff6827"
+                    android:text="VIEW CAR INFO "
+                    android:onClick="viewCarInfo"
+                    android:layout_marginLeft="60dp"
+                    app:bootstrapBrand="secondary"
+                    app:bootstrapSize="xl"
+                    android:textStyle="bold|italic"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true"
+                    app:showOutline="false" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:layout_gravity="start"
+        >
+        <include
+            layout="@layout/main_nav_drawer2"
+            />
+    </RelativeLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

@@ -20,7 +20,6 @@
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="50dp"
             android:orientation="vertical"
             tools:context=".choose_center2">
             <ListView
@@ -49,6 +48,4 @@
             layout="@layout/main_nav_drawer"
             />
     </RelativeLayout>
-
-
 </androidx.drawerlayout.widget.DrawerLayout>

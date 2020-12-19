@@ -10,6 +10,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="25dp"
+        android:layout_marginLeft="9dp"
         android:src="@drawable/img2"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp" />

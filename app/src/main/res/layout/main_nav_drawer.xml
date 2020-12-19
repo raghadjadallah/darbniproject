@@ -24,13 +24,12 @@
             android:fontFamily="@font/mmm"
             android:textSize="11pt"
             android:layout_marginLeft="16dp" />
-
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="48dp"
             android:layout_marginRight="48dp"
-            android:src="@drawable/ic_home" />
+            android:src="@drawable/ic_baseline_home_24" />
     </LinearLayout>
 
     <LinearLayout
@@ -63,33 +62,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:onClick="SeeMyRequest"
-        android:gravity="center_vertical"
-        >
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:fontFamily="@font/mmm"
-            android:text="Last Request"
-            android:padding="12dp"
-            android:textColor="#130400"
-            android:textSize="11pt"
-            android:layout_marginStart="16dp"
-            android:layout_marginLeft="16dp" />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="48dp"
-            android:src="@drawable/ic_last_page"
-            android:layout_marginRight="48dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center_vertical"
         android:onClick="SendSpecialRequest"
         >
@@ -98,7 +70,6 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-
             android:text="Send Special Request"
             android:padding="12dp"
             android:textColor="#130400"

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -35,5 +36,6 @@ public class ReviewContent extends AppCompatActivity {
     public void process(View view) {
         // with this method we going to write code
         // To deal with problem information
+        Toast.makeText(this, "move to center management screen ", Toast.LENGTH_SHORT).show();
     }
 }

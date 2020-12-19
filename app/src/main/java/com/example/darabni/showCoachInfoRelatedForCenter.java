@@ -12,33 +12,38 @@ import android.widget.Toast;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainTrainerScreen extends AppCompatActivity {
-    CircleImageView userimage;
-    TextView name,phone,mail;
-    DrawerLayout drawerMenuForScreen;
+public class showCoachInfoRelatedForCenter extends AppCompatActivity {
+    CircleImageView profile;
+    TextView name,phone,address,cost,type;
+    DrawerLayout screendarwer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_trainer_screen);
-                userimage=(CircleImageView)findViewById(R.id.profile_image);
-                name=(TextView)findViewById(R.id.username) ;
-                phone=(TextView)findViewById(R.id.userphone) ;
-                mail=(TextView)findViewById(R.id.usermail) ;
-                drawerMenuForScreen=(DrawerLayout)findViewById(R.id.mainTrainerDrawer);
+        setContentView(R.layout.activity_show_coach_info_related_for_center);
+        screendarwer=(DrawerLayout)findViewById(R.id.drawerCoachInfo);
+        profile=(CircleImageView)findViewById(R.id.coachimage);
+        name=(TextView)findViewById(R.id.coachname);
+        phone=(TextView)findViewById(R.id.coachphone);
+        address=(TextView)findViewById(R.id.coachaddress);
+        cost=(TextView)findViewById(R.id.coachcost);
+        type=(TextView)findViewById(R.id.coachtype);
     }
-
-    public void editUserInfo(View view) {
-        // with method we allow the user to edit there own information
-        // by moving to new screen called dataModifiedScreen via intent object
-        Intent moveToEditScreen=new Intent(MainTrainerScreen.this,ModifyTrainerInfo.class);
-        moveToEditScreen.putExtra("uname",name.getText().toString());
-        moveToEditScreen.putExtra("uphone",phone.getText().toString());
-        moveToEditScreen.putExtra("uemail",mail.getText().toString());
-        startActivity(moveToEditScreen);
+    public void cancelCoachInfoView(View view) {
+        // via this method we just back to the coach list
+        finish();
+    }
+    public void viewCarInfo(View view) {
+        /*
+         via this method we cross forward to new screen that allow users to see
+         car information before send training request
+         */
+        Intent moveToCarInfo=new Intent(showCoachInfoRelatedForCenter.this
+                ,showCarInfoRelatedForCenter.class);
+        startActivity(moveToCarInfo);
     }
     //Drawer Mange Methods
     public void onMenuClicked(View view) {
-        openDrawer(drawerMenuForScreen);
+        openDrawer(screendarwer);
     }
     //This method do the opening drawer operation
     private static void openDrawer(DrawerLayout draw) {
@@ -74,11 +79,5 @@ public class MainTrainerScreen extends AppCompatActivity {
     // (6 ) ClickLogout
     public void ClickLogout (View view){
         Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-
-    public void searchForCenter(View view) {
-      Intent intent=new Intent(MainTrainerScreen.this
-              ,SearchForCenter.class);
-      startActivity(intent);
     }
 }

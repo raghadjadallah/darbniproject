@@ -20,13 +20,13 @@ public class parseStarter extends Application {
                 .build()
         );
         ParseObject obj=new ParseObject("Test");
-        obj.put("Key","1234");
-        obj.put("name","hadeel");
+        obj.put("Key","123444");
+        obj.put("name","had");
         obj.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if(e==null){
-                    Toast.makeText(getApplicationContext(), "Go Jasser", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Go GO ", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }

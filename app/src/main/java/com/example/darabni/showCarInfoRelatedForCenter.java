@@ -7,15 +7,30 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class CenterMainScreen extends AppCompatActivity {
+import de.hdodenhof.circleimageview.CircleImageView;
+
+public class showCarInfoRelatedForCenter extends AppCompatActivity {
+    CircleImageView imageView;
+    TextView manufactor,type,gear,model;
     DrawerLayout screendrawer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_center_main_screen);
-        screendrawer=(DrawerLayout)findViewById(R.id.drawerCenterMain);
+        setContentView(R.layout.activity_show_car_info_related_for_center);
+        screendrawer=(DrawerLayout)findViewById(R.id.drawerCarInfo);
+        imageView=(CircleImageView)findViewById(R.id.carimage);
+        manufactor=(TextView)findViewById(R.id.carmanufactor);
+        type=(TextView)findViewById(R.id.carname);
+        gear=(TextView)findViewById(R.id.cargear);
+        model=(TextView)findViewById(R.id.carmodel);
+    }
+    public void cancelCarInfoView(View view) {/*
+          back to previous screen
+         */
+        finish();
     }
     //Drawer Mange Methods
     public void onMenuClicked(View view) {
@@ -33,30 +48,27 @@ public class CenterMainScreen extends AppCompatActivity {
     }
     // All Following method that connected with drawer menu items
     // (1) Home Item
-    public void CenterAdminHome(View view){
+    public void HomeItemClicked(View view){
         Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
     }
-    // (2) CenterAddCoach
-    public void CenterAddCoach(View view){
+    // (2) Update Account Info
+    public void UpdateAccountInfo(View view){
         Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
     }
-    // (3 ) CenterNeedSupport
-    public void CenterNeedSupport (View view){
+    // (3 ) SeeMyRequest
+    public void SeeMyRequest (View view){
         Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
     }
-    // (4 ) AdminClickLogout
-    public void AdminClickLogout (View view){
+    // (4 ) SeeMyRequest
+    public void SendSpecialRequest (View view){
         Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
     }
-
-    public void goToseeLastRequest(View view) {
-     Intent moveToSeeRequest=new Intent(CenterMainScreen.this,SeeLastRequest.class);
-     startActivity(moveToSeeRequest);
+    // (5 ) ClickAboutUS
+    public void ClickAboutUS (View view){
+        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
     }
-
-    public void goToSeeCoachInfo(View view) {
-        Intent moveToSeeCoach=new Intent
-                (CenterMainScreen.this,displayCoachList.class);
-        startActivity(moveToSeeCoach);
+    // (6 ) ClickLogout
+    public void ClickLogout (View view){
+        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
     }
 }

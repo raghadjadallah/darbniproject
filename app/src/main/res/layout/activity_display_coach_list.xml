@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/drawerCenterSearch"
+    android:id="@+id/drawerCoach"
     android:layout_height="match_parent"
-    tools:context=".SearchForCenter">
+    tools:context=".displayCoachList">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,25 +21,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="30dp"
-            android:background="@color/black"
-            tools:context=".choose_center">
-
-            <Spinner
-                android:id="@+id/spin"
-                android:layout_margin="15dp"
-                android:layout_width="300dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="10dp"
-                android:entries="@array/City" />
+            tools:context=".choose_center2">
             <ListView
-                android:id="@+id/listcenter"
+                android:id="@+id/list2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:padding="35dp"
-                android:layout_marginTop="35dp">
-            </ListView>
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_marginBottom="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout
@@ -49,9 +45,7 @@
         android:layout_gravity="start"
         >
         <include
-            layout="@layout/main_nav_drawer"
+            layout="@layout/main_nav_drawer2"
             />
     </RelativeLayout>
-
-
 </androidx.drawerlayout.widget.DrawerLayout>

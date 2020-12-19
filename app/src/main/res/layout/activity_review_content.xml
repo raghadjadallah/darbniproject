@@ -8,11 +8,18 @@
     android:background="#fff4eb"
     android:orientation="vertical"
     tools:context=".ReviewContent">
-
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10pt"
+        android:layout_marginTop="10pt"
+        android:textColor="@color/black"
+        android:text="Center name : "/>
     <TextView
         android:id="@+id/ttv1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:text=" Name Center : "
         android:fontFamily="@font/text3"
         android:textSize="13pt"
@@ -20,7 +27,15 @@
         android:textColor="#130400 "
         android:textStyle="bold" />
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10pt"
+        android:layout_marginTop="10pt"
+        android:text="Problem Type "
+        android:textColor="@color/black"/>
+    <TextView
         android:id="@+id/ttv2"
+        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=" Problem Type : "
@@ -30,18 +45,26 @@
         android:layout_marginTop="30dp"
         android:textStyle="bold" />
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10pt"
+        android:layout_marginTop="10pt"
+        android:text="Description : "
+        android:textColor="@color/black"/>
+    <TextView
         android:id="@+id/ttv3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text=" The Problem : "
         android:fontFamily="@font/text3"
         android:textSize="13pt"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="30dp"
         android:textColor="#130400 "
         android:textStyle="bold" />
     <com.beardedhen.androidbootstrap.BootstrapButton
-        android:layout_width="200dp"
-        android:layout_height="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:backgroundTint="#ff6827"
         android:text="MOVE TO THE CENTER"

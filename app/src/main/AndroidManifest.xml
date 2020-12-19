@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.darabni">
+
     <application
         android:name=".parseStarter"
         android:allowBackup="true"
@@ -9,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".requestList"></activity>
+        <activity android:name=".showCarInfoRelatedForCenter"></activity>
+        <activity android:name=".showCoachInfoRelatedForCenter" />
+        <activity android:name=".displayCoachList" />
+        <activity android:name=".requestList" />
         <activity android:name=".AddNewCar" />
         <activity android:name=".AddNewCoach" />
         <activity android:name=".SeeLastRequest" />
