@@ -26,17 +26,25 @@ public class Resetpassword2 extends AppCompatActivity {
     }
     public void ConfirmPassChange(View view) {
         // via this method we going to complete password changing and reset
-        if(pass.getText().toString().equals(cpass.getText().toString())){
-            // now if the new password and confirm password is equals
-            // then we will check if the entered code is correct
-                //then if the code is correct we will reset the password
-                // other wise we Send A massage to tell user to check the entered value for code
-            Toast.makeText(this, "Changed", Toast.LENGTH_SHORT).show();
-            finish();
+        if(code.getText().toString().matches("")){
+            Toast.makeText(this, "Enter The Verification code", Toast.LENGTH_SHORT).show();
         }else {
-            // here we tell the user to edit the password and confirm password
-            // to be matches
-            Toast.makeText(this, "Please check the password values", Toast.LENGTH_SHORT).show();
+            if(pass.getText().toString().matches("")&&cpass.getText().toString().matches("")){
+                Toast.makeText(this, "Enter A Valid password value", Toast.LENGTH_SHORT).show();
+            }else {
+                if(pass.getText().toString().equals(cpass.getText().toString())){
+                    // now if the new password and confirm password is equals
+                    // then we will check if the entered code is correct
+                    //then if the code is correct we will reset the password
+                    // other wise we Send A massage to tell user to check the entered value for code
+                    Toast.makeText(this, "Changed", Toast.LENGTH_SHORT).show();
+                    finish();
+                }else {
+                    // here we tell the user to edit the password and confirm password
+                    // to be matches
+                    Toast.makeText(this, "Please check the password values", Toast.LENGTH_SHORT).show();
+                }
+            }
         }
     }
 }

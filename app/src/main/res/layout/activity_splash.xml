@@ -11,7 +11,7 @@
     tools:context=".SplashActivity">
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/img1"
+        android:id="@+id/logoImage"
         android:layout_width="200dp"
         android:layout_height="245dp"
         android:layout_gravity="center"
@@ -24,11 +24,12 @@
     <TextView
         android:layout_marginBottom="88dp"
         android:layout_width="200dp"
-        android:layout_height="175dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="Darbni"
+        android:textAlignment="center"
         android:textColor="#010000"
-        android:textSize="24pt"
+        android:textSize="22pt"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

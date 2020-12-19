@@ -19,9 +19,9 @@ public class parseStarter extends Application {
                 .server("http://ec2-3-131-85-178.us-east-2.compute.amazonaws.com/parse/")
                 .build()
         );
-        /*ParseObject obj=new ParseObject("Test");
-        obj.put("Key","123");
-        obj.put("name","jasser");
+        ParseObject obj=new ParseObject("Test");
+        obj.put("Key","1234");
+        obj.put("name","hadeel");
         obj.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -31,7 +31,7 @@ public class parseStarter extends Application {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
-        });*/
+        });
         ParseUser.enableAutomaticUser();
         ParseACL defo=new ParseACL();
         defo.setPublicReadAccess(true);

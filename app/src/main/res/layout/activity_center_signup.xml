@@ -9,113 +9,122 @@
     android:orientation="vertical"
     android:background="@drawable/dg4"
     tools:context=".CenterSignup">
-    <de.hdodenhof.circleimageview.CircleImageView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/profile_image"
-        android:layout_width="125dp"
-        android:layout_height="125dp"
-        android:src="@drawable/img2"
-        app:civ_border_width="2dp"
-        android:layout_gravity="center_horizontal"
-        app:civ_border_color="#FF000000"/>
-    <com.beardedhen.androidbootstrap.BootstrapButton
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:backgroundTint="#130400"
-        android:text="Upload Image"
-        android:onClick="changeCenterImage"
-        android:layout_gravity="center_horizontal"
-        app:bootstrapSize="xl"
-        app:buttonMode="regular"
-        app:roundedCorners="true"
-        app:showOutline="false"
-        android:textStyle="bold|italic"/>
-
-
-
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Center Name :"
-        android:textStyle="bold"
-        android:textSize="9pt"
-        android:fontFamily="@font/text3"
-        android:textColor="#130400" />
-
-    <com.beardedhen.androidbootstrap.BootstrapEditText
-        android:id="@+id/centername"
+        android:padding="25dp"
+        >
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:src="@drawable/img2"
+            app:civ_border_width="2dp"
+            android:layout_gravity="center_horizontal"
+            app:civ_border_color="#FF000000"/>
+        <com.beardedhen.androidbootstrap.BootstrapButton
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:backgroundTint="#130400"
+            android:text="Upload Image"
+            android:onClick="changeCenterImage"
+            android:layout_gravity="center"
+            app:bootstrapSize="xl"
+            app:buttonMode="regular"
+            app:roundedCorners="true"
+            app:showOutline="false"
+            android:textStyle="bold|italic"/>
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:inputType="text"
-        android:textColor="#130400"
-        app:bootstrapBrand="info"
-        app:bootstrapSize="md"
+        android:orientation="vertical"
+        android:padding="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:text="Center Name :"
+            android:textStyle="bold"
+            android:textSize="9pt"
+            android:fontFamily="@font/text3"
+            android:textColor="#130400" />
 
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Center Address :"
-        android:layout_marginTop="10dp"
-        android:textSize="9pt"
-        android:textStyle="bold"
-        android:fontFamily="@font/text3"
-        android:textColor="#130400"/>
-    <com.beardedhen.androidbootstrap.BootstrapEditText
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/centername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:textColor="#130400"
+            app:bootstrapBrand="info"
+            app:bootstrapSize="md"
 
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:bootstrapSize="md"
-        app:bootstrapBrand="info"
-        android:id="@+id/centeraddress"
-        android:layout_marginTop="10dp"
-        android:inputType="text"
-        android:textColor="#130400"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Center Address :"
+            android:layout_marginTop="10dp"
+            android:textSize="9pt"
+            android:textStyle="bold"
+            android:fontFamily="@font/text3"
+            android:textColor="#130400"/>
+        <com.beardedhen.androidbootstrap.BootstrapEditText
 
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Center Phone : "
-        android:textColor="#130400"
-        android:textSize="9pt"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/text3"
-        android:textStyle="bold"/>
-    <com.beardedhen.androidbootstrap.BootstrapEditText
-        android:id="@+id/centerphone"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:bootstrapSize="md"
-        app:bootstrapBrand="info"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:bootstrapSize="md"
+            app:bootstrapBrand="info"
+            android:id="@+id/centeraddress"
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:textColor="#130400"
 
-        android:layout_marginTop="10dp"
-        android:inputType="text"
-        android:textColor="#130400"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Center Phone : "
+            android:textColor="#130400"
+            android:textSize="9pt"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/text3"
+            android:textStyle="bold"/>
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/centerphone"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:bootstrapSize="md"
+            app:bootstrapBrand="info"
 
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="License Number : "
-        android:textColor="#130400"
-        android:textSize="9pt"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/text3"
-        android:textStyle="bold"/>
-    <com.beardedhen.androidbootstrap.BootstrapEditText
-        android:id="@+id/centerlicence"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        app:bootstrapSize="md"
-        app:bootstrapBrand="info"
-        android:layout_marginTop="10dp"
-        android:inputType="number"
-        android:textColor="#130400"/>
+            android:layout_marginTop="10dp"
+            android:inputType="text"
+            android:textColor="#130400"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="License Number : "
+            android:textColor="#130400"
+            android:textSize="9pt"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/text3"
+            android:textStyle="bold"/>
+        <com.beardedhen.androidbootstrap.BootstrapEditText
+            android:id="@+id/centerlicence"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:bootstrapSize="md"
+            app:bootstrapBrand="info"
+            android:layout_marginTop="10dp"
+            android:inputType="number"
+            android:textColor="#130400"/>
+    </LinearLayout>
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

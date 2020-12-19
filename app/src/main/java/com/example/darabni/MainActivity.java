@@ -146,6 +146,5 @@ public class MainActivity extends AppCompatActivity {
                 // here we don't do any thing
             }
         }).show();
-        Toast.makeText(this, "No NO NO No NO No ", Toast.LENGTH_SHORT).show();
     }
 }

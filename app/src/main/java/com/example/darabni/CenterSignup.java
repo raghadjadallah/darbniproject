@@ -3,6 +3,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
 import com.beardedhen.androidbootstrap.BootstrapEditText;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -10,6 +12,7 @@ public class CenterSignup extends AppCompatActivity {
     CircleImageView profile;
     String usernameData,userphoneData,useremailData,userpasswordData;
     BootstrapEditText centerName,centerPhone,centerLicence,centerAddress;
+    String nameCenter,phoneCenter,licenceCenter,addressCenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,7 @@ public class CenterSignup extends AppCompatActivity {
     }
     public void changeCenterImage(View view) {
         //this method allow users to change the center default image
+        Toast.makeText(this, "Pick image from storage", Toast.LENGTH_SHORT).show();
      }
 
     public void continueSignupAsCenter(View view) {
@@ -35,5 +39,17 @@ public class CenterSignup extends AppCompatActivity {
         // Now after we get information from the previous screen
         // In this method we try to get the complement data from this screen
         // Then we trying to add a new record to the data base
+        //nameCenter,phoneCenter,licenceCenter,addressCenter
+        nameCenter=centerName.getText().toString();
+        phoneCenter=centerPhone.getText().toString();
+        licenceCenter=centerLicence.getText().toString();
+        addressCenter=centerAddress.getText().toString();
+        if(nameCenter.matches("")&&phoneCenter.matches("")
+        &&licenceCenter.matches("")&&addressCenter.matches("")){
+            Toast.makeText(this, "All data Are Required", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(this, "Sign up done", Toast.LENGTH_SHORT).show();
+            finish();
+        }
      }
 }
