@@ -79,7 +79,7 @@ public class MainTrainerScreen extends AppCompatActivity {
     public void StartSearchingforCoach(View view) {
         Toast.makeText(this, "whats Happened", Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(MainTrainerScreen.this
-                ,SearchForCenter.class);
+                ,CenterListItem.class);
         startActivity(intent);
     }
 }

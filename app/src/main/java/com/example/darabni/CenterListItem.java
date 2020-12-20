@@ -18,19 +18,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-public class SearchForCenter extends AppCompatActivity {
+
+public class CenterListItem extends AppCompatActivity {
     Spinner fillter;
     ListView centerlist;
     DrawerLayout screenDrawer;
     String fillterOption="null";
-    ArrayList<String>centerNames,centerAddress,centerPhones;
+    ArrayList<String> centerNames,centerAddress,centerPhones;
     ArrayList<Bitmap>centerImages;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_for_center);
-        screenDrawer=(DrawerLayout)findViewById(R.id.drawerCenterSearch);
-        /*
+        setContentView(R.layout.activity_center_list_item);
+        screenDrawer=(DrawerLayout)findViewById(R.id.drawercenterlist2);
+                /*
         Define Array List
          */
         centerImages=new ArrayList<Bitmap>();
@@ -63,8 +64,9 @@ public class SearchForCenter extends AppCompatActivity {
         when the user select an item from the spinner the query for fetching data
         will change automatically
          */
-        centerlist=(ListView)findViewById(R.id.listcenter);
-        ArrayAdapter centerListAdapter=new ArrayAdapter(SearchForCenter.this
+        centerlist=(ListView)findViewById(R.id.listcenteritemview);
+        //Set the Adapter
+        ArrayAdapter centerListAdapter=new ArrayAdapter(CenterListItem.this
                 ,R.layout.centerlistdesign,R.id.centerListName,centerNames){
             @NonNull
             @Override
@@ -74,24 +76,24 @@ public class SearchForCenter extends AppCompatActivity {
                 TextView phone=(TextView)view2.findViewById(R.id.centerphone);
                 address.setText(centerAddress.get(position));
                 phone.setText(centerPhones.get(position));
-               return view2;
+                return view2;
             }
         };
         centerlist.setAdapter(centerListAdapter);
-        /*
-        When the user click on specific center the application move the user
+        // implement method for on click listener
+        /*When the user click on specific center the application move the user
         to new screen for display coach list in special condition that is
         all coach will displayed on next screen
         must be associated with the selected center
-         */
-       centerlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-           @Override
-           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-               Intent moveToCoachSearching=new Intent
-                       (SearchForCenter.this,searchForCoach.class);
-               startActivity(moveToCoachSearching);
-           }
-       });
+        */
+        centerlist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent moveToCoachSearching=new Intent
+                        (CenterListItem.this,searchForCoach.class);
+                startActivity(moveToCoachSearching);
+            }
+        });
     }
     //Drawer Mange Methods
     public void onMenuClicked(View view) {
@@ -114,10 +116,6 @@ public class SearchForCenter extends AppCompatActivity {
     }
     // (2) Update Account Info
     public void UpdateAccountInfo(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (3 ) SeeMyRequest
-    public void SeeMyRequest (View view){
         Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
     }
     // (4 ) SeeMyRequest

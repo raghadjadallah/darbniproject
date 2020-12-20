@@ -10,7 +10,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".showCarInfoRelatedForCenter"></activity>
+        <activity android:name=".CenterListItem"></activity>
+        <activity android:name=".showCarInfoRelatedForCenter" />
         <activity android:name=".showCoachInfoRelatedForCenter" />
         <activity android:name=".displayCoachList" />
         <activity android:name=".requestList" />
@@ -22,7 +23,6 @@
         <activity android:name=".CarInfo" />
         <activity android:name=".ShowCoachInfo" />
         <activity android:name=".searchForCoach" />
-        <activity android:name=".SearchForCenter" />
         <activity android:name=".ModifyTrainerInfo" />
         <activity android:name=".MainTrainerScreen" />
         <activity android:name=".manageCenter" />
