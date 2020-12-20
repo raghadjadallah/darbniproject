@@ -65,7 +65,7 @@ public class displayCoachList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent moveToSeeCoachFullInfo=new Intent
-                        (displayCoachList.this,ShowCoachInfo.class);
+                        (displayCoachList.this,showCoachInfoRelatedForCenter.class);
                 startActivity(moveToSeeCoachFullInfo);
             }
         });
