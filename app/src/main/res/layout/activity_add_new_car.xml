@@ -125,6 +125,7 @@
                     android:layout_height="50dp"
                     android:layout_gravity="center">
                     <CheckBox
+                        android:id="@+id/man1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Automatic"
@@ -134,17 +135,18 @@
                         android:textStyle="bold"
                         />
                     <CheckBox
+                        android:id="@+id/man2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Manual"
                         android:textColor="#130400"
                         android:textSize="8pt"
+                        android:onClick="ToggleCheckBox"
                         android:layout_marginLeft="80dp"
                         android:fontFamily="@font/text3"
                         android:textStyle="bold"
                         />
                 </LinearLayout>
-
                 <com.beardedhen.androidbootstrap.BootstrapButton
                     android:layout_width="180dp"
                     android:layout_height="wrap_content"

@@ -57,7 +57,7 @@
 
             </LinearLayout>
             <LinearLayout
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="0dp"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
                 android:orientation="vertical"
@@ -136,7 +136,7 @@
                 android:id="@+id/button5"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="23dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginLeft="50dp"
                 android:backgroundTint="#ff6827"
                 android:text="NEXT"
@@ -150,7 +150,6 @@
                 app:showOutline="false"
                 android:translationX="120dp"
                 android:fontFamily="@font/mmm"
-                android:translationY="30dp"
                 android:textStyle="bold|italic"/>
 
 

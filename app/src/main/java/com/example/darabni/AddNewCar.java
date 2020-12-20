@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.Toast;
 
 public class AddNewCar extends AppCompatActivity {
@@ -50,5 +51,16 @@ public class AddNewCar extends AppCompatActivity {
 
     public void registerNewCoach(View view) {
         Toast.makeText(this, "Finish", Toast.LENGTH_SHORT).show();
+    }
+
+    public void ToggleCheckBox(View view) {
+        int id=view.getId();
+        CheckBox ch1=(CheckBox)findViewById(R.id.man1);
+        CheckBox ch2=(CheckBox)findViewById(R.id.man2);
+        if(id==R.id.man1){
+            ch2.setChecked(false);
+        }else {
+            ch1.setChecked(false);
+        }
     }
 }
