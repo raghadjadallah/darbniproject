@@ -49,12 +49,15 @@ public class CenterListItem extends AppCompatActivity {
         // and we have a drop down menu that allow the user do
         // special query (filter the result depending on city name and center address)
         fillter=(Spinner)findViewById(R.id.spin);
+        String [] city_name=getResources().getStringArray(R.array.City);
+        ArrayAdapter arrayAdapter2=new ArrayAdapter
+                (this, android.R.layout.simple_list_item_1,city_name);
+        fillter.setAdapter(arrayAdapter2);
         fillter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                fillterOption=fillter.getSelectedItem().toString();
+                fillterOption=city_name[position];
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 fillterOption="null";
@@ -64,9 +67,9 @@ public class CenterListItem extends AppCompatActivity {
         when the user select an item from the spinner the query for fetching data
         will change automatically
          */
-        centerlist=(ListView)findViewById(R.id.listcenteritemview);
+        centerlist=(ListView) findViewById(R.id.listcenteritemview);
         //Set the Adapter
-        ArrayAdapter centerListAdapter=new ArrayAdapter(CenterListItem.this
+        ArrayAdapter arrayAdapter=new ArrayAdapter(CenterListItem.this
                 ,R.layout.centerlistdesign,R.id.centerListName,centerNames){
             @NonNull
             @Override
@@ -79,7 +82,7 @@ public class CenterListItem extends AppCompatActivity {
                 return view2;
             }
         };
-        centerlist.setAdapter(centerListAdapter);
+        centerlist.setAdapter(arrayAdapter);
         // implement method for on click listener
         /*When the user click on specific center the application move the user
         to new screen for display coach list in special condition that is
