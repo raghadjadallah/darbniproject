@@ -6,6 +6,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class AddNewCar extends AppCompatActivity {
     DrawerLayout screendrawer;
@@ -45,5 +46,9 @@ public class AddNewCar extends AppCompatActivity {
     // (4 ) AdminClickLogout
     public void AdminClickLogout (View view){
 
+    }
+
+    public void registerNewCoach(View view) {
+        Toast.makeText(this, "Finish", Toast.LENGTH_SHORT).show();
     }
 }

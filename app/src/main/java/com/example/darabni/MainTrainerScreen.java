@@ -36,6 +36,12 @@ public class MainTrainerScreen extends AppCompatActivity {
         moveToEditScreen.putExtra("uemail",mail.getText().toString());
         startActivity(moveToEditScreen);
     }
+    public void searchForCenter(View view) {
+        Intent intent=new Intent(MainTrainerScreen.this
+                ,SearchForCenter.class);
+        Toast.makeText(this, "whats Happened", Toast.LENGTH_SHORT).show();
+        startActivity(intent);
+    }
     //Drawer Mange Methods
     public void onMenuClicked(View view) {
         openDrawer(drawerMenuForScreen);
@@ -74,11 +80,5 @@ public class MainTrainerScreen extends AppCompatActivity {
     // (6 ) ClickLogout
     public void ClickLogout (View view){
         Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-
-    public void searchForCenter(View view) {
-      Intent intent=new Intent(MainTrainerScreen.this
-              ,SearchForCenter.class);
-      startActivity(intent);
     }
 }

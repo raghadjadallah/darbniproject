@@ -38,7 +38,8 @@ public class CenterMainScreen extends AppCompatActivity {
     }
     // (2) CenterAddCoach
     public void CenterAddCoach(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent move=new Intent(CenterMainScreen.this,AddNewCoach.class);
+        startActivity(move);
     }
     // (3 ) CenterNeedSupport
     public void CenterNeedSupport (View view){

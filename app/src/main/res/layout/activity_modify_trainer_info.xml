@@ -117,7 +117,7 @@
                     android:onClick="modifyOperation"
                     app:bootstrapBrand="success"
                     android:fontFamily="@font/mmm"
-                    android:layout_marginLeft="100dp"
+                    android:layout_marginLeft="60dp"
                     app:bootstrapSize="xl"
                     android:textStyle="italic|bold"
                     app:buttonMode="regular"

@@ -140,6 +140,7 @@
                 android:layout_marginLeft="50dp"
                 android:backgroundTint="#ff6827"
                 android:text="NEXT"
+                android:onClick="CompleteAddingCoach"
                 android:layout_gravity="left"
                 app:bootstrapSize="xl"
                 android:textSize="25dp"

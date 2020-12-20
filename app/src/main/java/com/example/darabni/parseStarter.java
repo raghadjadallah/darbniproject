@@ -26,9 +26,9 @@ public class parseStarter extends Application {
             @Override
             public void done(ParseException e) {
                 if(e==null){
-                    Toast.makeText(getApplicationContext(), "Go GO ", Toast.LENGTH_SHORT).show();
+                 //   Toast.makeText(getApplicationContext(), "Go GO ", Toast.LENGTH_SHORT).show();
                 }else {
-                    Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

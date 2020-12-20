@@ -153,6 +153,7 @@
                     android:backgroundTint="#ff6827"
                     android:fontFamily="@font/mmm"
                     android:text="FINSH "
+                    android:onClick="registerNewCoach"
                     android:textSize="9pt"
                     android:textStyle="bold|italic"
                     app:bootstrapBrand="secondary"

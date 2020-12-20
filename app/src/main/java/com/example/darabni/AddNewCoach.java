@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -45,5 +46,11 @@ public class AddNewCoach extends AppCompatActivity {
     // (4 ) AdminClickLogout
     public void AdminClickLogout (View view){
 
+    }
+
+    public void CompleteAddingCoach(View view) {
+        // via this method we going to enter the new car information
+        Intent move2=new Intent(AddNewCoach.this,AddNewCar.class);
+        startActivity(move2);
     }
 }

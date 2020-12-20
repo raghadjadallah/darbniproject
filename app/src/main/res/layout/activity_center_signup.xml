@@ -12,13 +12,13 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="25dp"
+        android:padding="15dp"
         >
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/profile_image"
-            android:layout_width="125dp"
-            android:layout_height="125dp"
+            android:layout_width="118dp"
+            android:layout_height="118dp"
             android:src="@drawable/img2"
             app:civ_border_width="2dp"
             android:layout_gravity="center_horizontal"
@@ -27,7 +27,7 @@
             android:id="@+id/button4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_marginLeft="20dp"
             android:backgroundTint="#130400"
             android:text="Upload Image"
             android:onClick="changeCenterImage"
@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="6dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

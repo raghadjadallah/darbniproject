@@ -29,20 +29,19 @@
         <com.beardedhen.androidbootstrap.BootstrapButton
             android:id="@+id/button4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="18dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#130400"
-            android:text="Upload Image"
-            android:layout_marginLeft="22dp"
-            android:onClick="ChangeTrainerImage"
             android:fontFamily="@font/mmm"
+            android:onClick="ChangeTrainerImage"
+            android:text="Upload Image"
             android:textStyle="bold|italic"
-            android:layout_gravity="center"
             app:bootstrapSize="xl"
             app:buttonMode="regular"
             app:roundedCorners="true"
-            app:showOutline="false"
-            />
+            app:showOutline="false" />
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"

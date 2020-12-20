@@ -22,9 +22,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="30dp"
-            android:background="@color/black"
-            tools:context=".choose_center">
-
+            android:background="@color/black">
             <Spinner
                 android:id="@+id/spin"
                 android:layout_margin="15dp"
@@ -37,7 +35,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:padding="35dp"
                 android:layout_marginTop="35dp">
             </ListView>
         </LinearLayout>
@@ -52,6 +49,4 @@
             layout="@layout/main_nav_drawer"
             />
     </RelativeLayout>
-
-
 </androidx.drawerlayout.widget.DrawerLayout>

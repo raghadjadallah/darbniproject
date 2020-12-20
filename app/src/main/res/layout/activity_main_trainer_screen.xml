@@ -21,8 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="#fff4eb"
-            tools:context=".home_trainees">
+            android:background="#fff4eb">
             <de.hdodenhof.circleimageview.CircleImageView
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profile_image"
@@ -74,7 +73,7 @@
                 <com.beardedhen.androidbootstrap.BootstrapButton
                     android:layout_width="145dp"
                     android:layout_height="125dp"
-                    android:layout_marginTop="80dp"
+                    android:layout_marginTop="55dp"
                     android:backgroundTint="#ff6827"
                     android:text="MODIFY INFO"
                     android:onClick="editUserInfo"
@@ -86,13 +85,12 @@
                     app:roundedCorners="true"
                     android:layout_marginLeft="15dp"
                     app:showOutline="false"
-                    android:translationY="70dp"
                     android:textStyle="bold"
                     app:bootstrapBrand="secondary"/>
                 <com.beardedhen.androidbootstrap.BootstrapButton
                     android:layout_width="160dp"
                     android:layout_height="125dp"
-                    android:layout_marginTop="110dp"
+                    android:layout_marginTop="55dp"
                     android:backgroundTint="#ff6827"
                     android:onClick="searchForCenter"
                     android:text="START CHOOSING  CENTER"
@@ -104,7 +102,6 @@
                     app:buttonMode="radio"
                     app:roundedCorners="true"
                     app:showOutline="false"
-                    android:translationY="70dp"
                     android:textStyle="bold"
                     app:bootstrapBrand="secondary"/>
             </LinearLayout>
