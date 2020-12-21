@@ -22,7 +22,8 @@ import java.util.ArrayList;
 public class CenterListItem extends AppCompatActivity {
     ListView centerlist;
     DrawerLayout screenDrawer;
-    //String fillterOption="null";
+    Spinner fillterOptionList;
+    String fillterOption="null";
     ArrayList<String> centerNames,centerAddress,centerPhones;
     ArrayList<Bitmap>centerImages;
     @Override
@@ -48,12 +49,12 @@ public class CenterListItem extends AppCompatActivity {
         // and display it on the list view
         // and we have a drop down menu that allow the user do
         // special query (filter the result depending on city name and center address)
-        /*fillter=(Spinner)findViewById(R.id.spin);
+        fillterOptionList=(Spinner)findViewById(R.id.fillterList);
         String [] city_name=getResources().getStringArray(R.array.City);
         ArrayAdapter arrayAdapter2=new ArrayAdapter
-                (this, android.R.layout.simple_list_item_1,city_name);
-        fillter.setAdapter(arrayAdapter2);
-        fillter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                (CenterListItem.this, android.R.layout.simple_list_item_1,city_name);
+        fillterOptionList.setAdapter(arrayAdapter2);
+        fillterOptionList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 fillterOption=city_name[position];
@@ -62,8 +63,7 @@ public class CenterListItem extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
                 fillterOption="null";
             }
-        });*/
-
+        });
         /*
         when the user select an item from the spinner the query for fetching data
         will change automatically

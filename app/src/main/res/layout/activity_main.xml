@@ -93,7 +93,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Create Account"
-                android:textSize="8pt"
+                android:textSize="9pt"
                 android:textColor="#130400"
                 android:fontFamily="@font/mmm"
                 android:id="@+id/sa"

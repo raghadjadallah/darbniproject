@@ -115,7 +115,7 @@
                     android:backgroundTint="#ff6827"
                     android:text="VIEW CAR INFO "
                     android:onClick="viewCarInfo"
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="45dp"
                     app:bootstrapBrand="secondary"
                     app:bootstrapSize="xl"
                     android:textStyle="bold|italic"

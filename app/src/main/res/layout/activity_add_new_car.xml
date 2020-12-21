@@ -131,6 +131,7 @@
                         android:text="Automatic"
                         android:textColor="#130400"
                         android:textSize="8pt"
+                        android:onClick="ToggleCheckBox"
                         android:fontFamily="@font/text3"
                         android:textStyle="bold"
                         />
