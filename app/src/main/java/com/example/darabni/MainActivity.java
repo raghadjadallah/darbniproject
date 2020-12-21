@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                         // if the login operation done successfully the the user will
                             // moved into Center Screen via Intent Object
                 if (usernameValue.equals("jasser")&&passwordValue.equals("0000")){
-                    Toast.makeText(this, "Login as Center Done", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Login as Center Done", Toast.LENGTH_SHORT).show();
                     Intent movetoCenterScreen=new Intent(MainActivity.this,CenterMainScreen.class);
                     startActivity(movetoCenterScreen);
                 }else {
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 // if the login operation done successfully the the user will
                 // moved into Trainer Screen via Intent Object
                 if (usernameValue.equals("noor")&&passwordValue.equals("1234")){
-                    Toast.makeText(this, "Login as Trainer Done", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, "Login as Trainer Done", Toast.LENGTH_SHORT).show();
                     Intent movetoTrainerScreen=new Intent(MainActivity.this,MainTrainerScreen.class);
                     startActivity(movetoTrainerScreen);
                 }else {

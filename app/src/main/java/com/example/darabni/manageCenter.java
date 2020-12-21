@@ -90,6 +90,6 @@ public class manageCenter extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Toast.makeText(manageCenter.this, "Ok !", Toast.LENGTH_SHORT).show();
                     }
-                });
+                }).show();
        }
 }

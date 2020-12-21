@@ -77,7 +77,7 @@ public class MainTrainerScreen extends AppCompatActivity {
     }
 
     public void StartSearchingforCoach(View view) {
-        Toast.makeText(this, "whats Happened", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "whats Happened", Toast.LENGTH_SHORT).show();
         Intent intent=new Intent(MainTrainerScreen.this
                 ,CenterListItem.class);
         startActivity(intent);
