@@ -20,10 +20,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class CenterListItem extends AppCompatActivity {
-    Spinner fillter;
     ListView centerlist;
     DrawerLayout screenDrawer;
-    String fillterOption="null";
+    //String fillterOption="null";
     ArrayList<String> centerNames,centerAddress,centerPhones;
     ArrayList<Bitmap>centerImages;
     @Override
@@ -48,7 +47,7 @@ public class CenterListItem extends AppCompatActivity {
         // and display it on the list view
         // and we have a drop down menu that allow the user do
         // special query (filter the result depending on city name and center address)
-        fillter=(Spinner)findViewById(R.id.spin);
+        /*fillter=(Spinner)findViewById(R.id.spin);
         String [] city_name=getResources().getStringArray(R.array.City);
         ArrayAdapter arrayAdapter2=new ArrayAdapter
                 (this, android.R.layout.simple_list_item_1,city_name);
@@ -62,7 +61,8 @@ public class CenterListItem extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
                 fillterOption="null";
             }
-        });
+        });*/
+
         /*
         when the user select an item from the spinner the query for fetching data
         will change automatically
@@ -70,13 +70,13 @@ public class CenterListItem extends AppCompatActivity {
         centerlist=(ListView) findViewById(R.id.listcenteritemview);
         //Set the Adapter
         ArrayAdapter arrayAdapter=new ArrayAdapter(CenterListItem.this
-                ,R.layout.centerlistdesign,R.id.centerListName,centerNames){
+                ,R.layout.detailedcenterlistitem,R.id.item1,centerNames){
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view2= super.getView(position, convertView, parent);
-                TextView address=(TextView)view2.findViewById(R.id.centerListAddress);
-                TextView phone=(TextView)view2.findViewById(R.id.centerphone);
+                TextView address=(TextView)view2.findViewById(R.id.item2);
+                TextView phone=(TextView)view2.findViewById(R.id.item3);
                 address.setText(centerAddress.get(position));
                 phone.setText(centerPhones.get(position));
                 return view2;
