@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    android:background="@drawable/dg2"
+    android:background="@drawable/dg4"
     tools:context=".TrainerSignup">
     <LinearLayout
         android:orientation="horizontal"

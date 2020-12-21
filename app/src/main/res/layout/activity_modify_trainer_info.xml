@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:background="@drawable/dg2"
+            android:background="@drawable/dg4"
             android:layout_marginTop="10dp"
             android:padding="10dp">
             <TextView
@@ -94,7 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="85dp">
+                android:layout_marginTop="60dp">
                 <com.beardedhen.androidbootstrap.BootstrapButton
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -117,7 +117,7 @@
                     android:onClick="modifyOperation"
                     app:bootstrapBrand="success"
                     android:fontFamily="@font/mmm"
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="120dp"
                     app:bootstrapSize="xl"
                     android:textStyle="italic|bold"
                     app:buttonMode="regular"

@@ -50,7 +50,6 @@
                 android:layout_height="28dp"
                 android:layout_marginTop="13dp"
                 android:fontFamily="@font/mnmn"
-                android:hint="UserName"
                 android:inputType="text"
                 android:textColor="#130400"
                 android:textSize="10pt"

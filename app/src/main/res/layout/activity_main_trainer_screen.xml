@@ -68,7 +68,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="30dp">
                 <com.beardedhen.androidbootstrap.BootstrapButton
                     android:layout_width="145dp"
                     android:layout_height="125dp"
@@ -99,7 +100,7 @@
                     android:fontFamily="@font/mmm"
                     app:buttonMode="regular"
                     app:roundedCorners="true"
-                    android:layout_marginLeft="35dp"
+                    android:layout_marginLeft="80dp"
                     app:showOutline="false"
                     android:textStyle="bold"
                     app:bootstrapBrand="secondary"/>

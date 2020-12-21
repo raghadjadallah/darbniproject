@@ -24,7 +24,7 @@
         android:translationX="20dp"
         android:id="@+id/cename"
         android:text="center name :"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="40dp"
         android:textColor="#130400"
         android:textSize="10pt"
         android:textStyle="bold"

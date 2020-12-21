@@ -14,9 +14,7 @@
         >
         <include
             layout="@layout/main_tool_bar"/>
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -97,6 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
                     android:backgroundTint="#ff6827"
+                    android:layout_marginLeft="120dp"
                     android:fontFamily="@font/mmm"
                     android:text=" CANCEL "
                     android:onClick="cancelCarInfoView"
@@ -108,17 +107,18 @@
                     app:bootstrapBrand="secondary"/>
 
                 <com.beardedhen.androidbootstrap.BootstrapButton
-                    android:layout_width="wrap_content"
+                    android:layout_width="134dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="60dp"
-                    android:fontFamily="@font/mmm"
+
+                    android:layout_marginLeft="1000dp"
                     android:layout_marginTop="35dp"
                     android:backgroundTint="#ff6827"
-                    android:text="   NEXT     "
+                    android:fontFamily="@font/mmm"
                     android:onClick="goToSubmitRequest"
+                    android:text="   NEXT     "
+                    android:textStyle="bold|italic"
                     app:bootstrapBrand="secondary"
                     app:bootstrapSize="xl"
-                    android:textStyle="bold|italic"
                     app:buttonMode="regular"
                     app:roundedCorners="true"
                     app:showOutline="false" />

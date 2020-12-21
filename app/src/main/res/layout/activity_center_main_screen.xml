@@ -38,30 +38,39 @@
                 android:orientation="vertical"
                 android:padding="25dp">
 
-                <Button
+                <com.beardedhen.androidbootstrap.BootstrapButton
                     android:id="@+id/coachinfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:background="#fff"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:backgroundTint="#ff6827"
+                    android:layout_marginLeft="90dp"
                     android:fontFamily="@font/mmm"
                     android:text="See Coach Info"
                     android:onClick="goToSeeCoachInfo"
-                    android:layout_marginTop="19dp"
-                    android:textColor="@color/black"
-                    android:textSize="11pt" />
-
-                <Button
+                    android:textStyle="bold|italic"
+                    app:bootstrapSize="xl"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true"
+                    app:showOutline="false"
+                    app:bootstrapBrand="secondary"/>
+                <com.beardedhen.androidbootstrap.BootstrapButton
                     android:id="@+id/updateInfo"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="55dp"
+                    android:backgroundTint="#ff6827"
+                    android:layout_marginLeft="80dp"
+                    android:fontFamily="@font/mmm"
                     android:text="See Last Request"
                     android:onClick="goToseeLastRequest"
-                    android:layout_marginTop="104dp"
-                    android:background="#fff"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/mmm"
-                    android:textSize="11pt"
-                    />
+                    android:textStyle="bold|italic"
+                    app:bootstrapSize="xl"
+                    app:buttonMode="regular"
+                    app:roundedCorners="true"
+                    app:showOutline="false"
+                    app:bootstrapBrand="secondary"/>
+
 
             </LinearLayout>
         </LinearLayout>

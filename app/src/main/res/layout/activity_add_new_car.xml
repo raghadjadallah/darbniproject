@@ -69,17 +69,38 @@
                    android:layout_height="wrap_content"
                    android:padding="18dp"
                    android:orientation="vertical">
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Manufactor :"
+                       android:textSize="9pt"
+                       android:textStyle="bold"
+                       android:fontFamily="@font/text3"
+                       android:textColor="#130400"
+                       android:translationX="10dp"
+                       android:translationY="20dp"/>
                    <com.beardedhen.androidbootstrap.BootstrapEditText
-                       android:hint="Manufactor"
+
                        android:textColorHint="@color/black"
                        android:layout_width="match_parent"
                        android:layout_height="40dp"
                        app:bootstrapSize="md"
                        app:bootstrapBrand="info"
-                       android:layout_marginTop="10dp"
+                       android:layout_marginTop="20dp"
                        android:inputType="text"
                        android:textColor="#130400"
                        />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Name of model :"
+                       android:textSize="9pt"
+                       android:textStyle="bold"
+                       android:fontFamily="@font/text3"
+                       android:textColor="#130400"
+                       android:translationX="10dp"
+                       android:translationY="20dp"/>
+
                    <com.beardedhen.androidbootstrap.BootstrapEditText
                        android:hint="Name of model"
                        android:layout_width="match_parent"
@@ -87,10 +108,20 @@
                        app:bootstrapSize="md"
                        app:bootstrapBrand="info"
                        android:textColorHint="@color/black"
-                       android:layout_marginTop="10dp"
+                       android:layout_marginTop="20dp"
                        android:inputType="text"
                        android:textColor="#130400"
                        />
+                   <TextView
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="Model :"
+                       android:textSize="9pt"
+                       android:textStyle="bold"
+                       android:fontFamily="@font/text3"
+                       android:textColor="#130400"
+                       android:translationX="10dp"
+                       android:translationY="20dp"/>
                    <com.beardedhen.androidbootstrap.BootstrapEditText
                        android:hint="Model"
                        android:layout_width="match_parent"
@@ -98,7 +129,7 @@
                        app:bootstrapSize="md"
                        app:bootstrapBrand="info"
                        android:textColorHint="@color/black"
-                       android:layout_marginTop="10dp"
+                       android:layout_marginTop="20dp"
                        android:inputType="text"
                        android:textColor="#130400"
                        />
