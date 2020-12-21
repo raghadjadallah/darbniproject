@@ -33,6 +33,7 @@ public class CenterListItem extends AppCompatActivity {
                 /*
         Define Array List
          */
+        //IGnore this comment
         centerImages=new ArrayList<Bitmap>();
         centerNames=new ArrayList<String>();
         centerAddress=new ArrayList<String>();
