@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:id="@+id/drawerCarInfo"
     android:layout_height="match_parent"
-    tools:context=".CarInfo">
+    tools:context=".showCoachInfoRelatedForCenter">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,8 +21,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:background="#fff4eb "
-            android:padding="20dp"
-            tools:context=".car_info">
+            android:padding="20dp">
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,8 +99,8 @@
                     android:layout_marginLeft="110dp"
                     android:backgroundTint="#ff6827"
                     android:fontFamily="@font/mmm"
-                    android:text=" CANCEL "
-                    android:onClick="cancelCarInfoView"
+                    android:text="CANCEL "
+                    android:onClick="cancelCarInfo2"
                     android:textStyle="bold|italic"
                     app:bootstrapSize="xl"
                     app:buttonMode="regular"

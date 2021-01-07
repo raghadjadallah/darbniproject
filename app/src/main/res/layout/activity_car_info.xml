@@ -95,10 +95,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="35dp"
                     android:backgroundTint="#ff6827"
-                    android:layout_marginLeft="120dp"
+                    android:layout_marginLeft="-1dp"
                     android:fontFamily="@font/mmm"
                     android:text=" CANCEL "
-                    android:onClick="cancelCarInfoView"
+                    android:onClick="cancelCarInfo2"
                     android:textStyle="bold|italic"
                     app:bootstrapSize="xl"
                     app:buttonMode="regular"
@@ -107,18 +107,17 @@
                     app:bootstrapBrand="secondary"/>
 
                 <com.beardedhen.androidbootstrap.BootstrapButton
-                    android:layout_width="134dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
-                    android:layout_marginLeft="1000dp"
+                    android:fontFamily="@font/mmm"
                     android:layout_marginTop="35dp"
                     android:backgroundTint="#ff6827"
-                    android:fontFamily="@font/mmm"
-                    android:onClick="goToSubmitRequest"
                     android:text="   NEXT     "
-                    android:textStyle="bold|italic"
+                    android:layout_marginLeft="90dp"
+                    android:onClick="goToSubmitRequest"
                     app:bootstrapBrand="secondary"
                     app:bootstrapSize="xl"
+                    android:textStyle="bold|italic"
                     app:buttonMode="regular"
                     app:roundedCorners="true"
                     app:showOutline="false" />
@@ -128,7 +127,7 @@
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:layout_gravity="start"

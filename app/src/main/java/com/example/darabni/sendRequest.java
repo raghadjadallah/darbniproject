@@ -2,16 +2,29 @@ package com.example.darabni;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.Toast;
+
+import com.beardedhen.androidbootstrap.BootstrapEditText;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.SaveCallback;
 
 public class sendRequest extends AppCompatActivity {
     DrawerLayout screendrawer;
+    String directions,trainingTime="null";
+    BootstrapEditText notes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Intent recivedata=getIntent();
+        directions=recivedata.getStringExtra("dir");
         setContentView(R.layout.activity_send_request);
+        notes=(BootstrapEditText)findViewById(R.id.requestnote);
         screendrawer=(DrawerLayout)findViewById(R.id.drawerRequest);
     }
     //Drawer Mange Methods
@@ -31,29 +44,25 @@ public class sendRequest extends AppCompatActivity {
     // All Following method that connected with drawer menu items
     // (1) Home Item
     public void HomeItemClicked(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backtoHome = new Intent(sendRequest.this,MainTrainerScreen.class);
+        startActivity(backtoHome);
     }
-    // (2) Update Account Info
-    public void UpdateAccountInfo(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (3 ) SeeMyRequest
-    public void SeeMyRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (4 ) SeeMyRequest
+    // (2) SeeMyRequest
     public void SendSpecialRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent moveTosend=new Intent(sendRequest.this,sendRequest.class);
+        moveTosend.putExtra("dir","random");
+        startActivity(moveTosend);
     }
-    // (5 ) ClickAboutUS
+    // (3) ClickAboutUS
     public void ClickAboutUS (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent about=new Intent(sendRequest.this,AboutUs.class);
+        startActivity(about);
     }
-    // (6 ) ClickLogout
+    // (4) ClickLogout
     public void ClickLogout (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backTomain=new Intent(sendRequest.this,MainActivity.class);
+        startActivity(backTomain);
     }
-
     public void cancelSendRequest(View view) {
         // via this method we just cancel the request sending operation and back to
         // the previous screen
@@ -64,6 +73,65 @@ public class sendRequest extends AppCompatActivity {
         /*
         via this method we go to send the request to the selected center
          */
-        Toast.makeText(this, "You Request has been send", Toast.LENGTH_SHORT).show();
+        if(directions.equals("random")){
+            ParseObject randomRequest=new ParseObject("RandomRequest");
+            randomRequest.put("userid",MainTrainerScreen.userId);
+            randomRequest.put("time",trainingTime);
+            randomRequest.put("notes",notes.getText().toString());
+            randomRequest.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                    if (e == null) {
+                        finish();
+                    }
+                }
+            });
+        }else if(directions.equals("custom")){
+        ParseObject request=new ParseObject("Request");
+        request.put("userid",MainTrainerScreen.userId);
+        request.put("centerid",searchForCoach.centerId);
+        request.put("coachid",ShowCoachInfo.coachId);
+        request.put("carid",ShowCoachInfo.carId);
+        request.put("time",trainingTime);
+        request.put("notes",notes.getText().toString());
+        request.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                if(e==null){
+                    finish();
+                }
+            }
+        });
+    }
+    }
+    public void onTimeSelect(View view) {
+        CheckBox checkBox1=(CheckBox)findViewById(R.id.time1);
+        CheckBox  checkBox2=(CheckBox)findViewById(R.id.time2);
+        CheckBox  checkBox3=(CheckBox)findViewById(R.id.time3);
+        CheckBox  checkBox4=(CheckBox)findViewById(R.id.time4);
+        int id=view.getId();
+        if(id==R.id.time1){
+            trainingTime="Morning";
+            checkBox2.setChecked(false);
+            checkBox3.setChecked(false);
+            checkBox4.setChecked(false);
+        } else if(id==R.id.time2){
+            trainingTime="Evening";
+            checkBox1.setChecked(false);
+            checkBox3.setChecked(false);
+            checkBox4.setChecked(false);
+        }else if(id==R.id.time3){
+            trainingTime="After Noon";
+            checkBox1.setChecked(false);
+            checkBox2.setChecked(false);
+            checkBox4.setChecked(false);
+        }else if(id==R.id.time4){
+            trainingTime="All Times";
+            checkBox1.setChecked(false);
+            checkBox2.setChecked(false);
+            checkBox3.setChecked(false);
+        }else {
+            trainingTime=null;
+        }
     }
 }

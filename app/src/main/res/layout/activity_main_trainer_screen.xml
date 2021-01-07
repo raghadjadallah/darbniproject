@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Trainer's Name :"
+                android:text="Trainee Name :"
                 android:layout_margin="20dp"
                 android:id="@+id/username"
                 android:fontFamily="@font/text3"
@@ -47,7 +47,7 @@
                 android:id="@+id/userphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Trainer's Phone :"
+                android:text="Trainee Phone :"
                 android:layout_margin="20dp"
                 android:fontFamily="@font/text3"
                 android:textStyle="bold"
@@ -61,7 +61,7 @@
                 android:textStyle="bold"
                 android:id="@+id/usermail"
                 android:layout_height="wrap_content"
-                android:text="Trainer's Email :"
+                android:text="Trainee Email :"
                 android:layout_margin="20dp"
                 android:textColor="#130400"
                 />
@@ -108,7 +108,7 @@
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:layout_gravity="start"

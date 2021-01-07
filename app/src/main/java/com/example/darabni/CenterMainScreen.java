@@ -11,11 +11,14 @@ import android.widget.Toast;
 
 public class CenterMainScreen extends AppCompatActivity {
     DrawerLayout screendrawer;
+    public static String objectId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_center_main_screen);
         screendrawer=(DrawerLayout)findViewById(R.id.drawerCenterMain);
+        Intent rec=getIntent();
+        objectId=rec.getStringExtra("oid");
     }
     //Drawer Mange Methods
     public void onMenuClicked(View view) {
@@ -34,25 +37,21 @@ public class CenterMainScreen extends AppCompatActivity {
     // All Following method that connected with drawer menu items
     // (1) Home Item
     public void CenterAdminHome(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        closeDrawer(screendrawer);
     }
     // (2) CenterAddCoach
     public void CenterAddCoach(View view){
         Intent move=new Intent(CenterMainScreen.this,AddNewCoach.class);
         startActivity(move);
     }
-    // (3 ) CenterNeedSupport
-    public void CenterNeedSupport (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (4 ) AdminClickLogout
+    // (3 ) AdminClickLogout
     public void AdminClickLogout (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backTomain=new Intent(CenterMainScreen.this,MainActivity.class);
+        startActivity(backTomain);
     }
-
     public void goToseeLastRequest(View view) {
-     Intent moveToSeeRequest=new Intent(CenterMainScreen.this,SeeLastRequest.class);
-     startActivity(moveToSeeRequest);
+        Intent moveToSeeRequest = new Intent(CenterMainScreen.this, SeeLastRequest.class);
+        startActivity(moveToSeeRequest);
     }
 
     public void goToSeeCoachInfo(View view) {

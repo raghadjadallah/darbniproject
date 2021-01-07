@@ -4,16 +4,57 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 public class ShowCoachInfo extends AppCompatActivity {
     CircleImageView profile;
-    TextView name,phone,address,cost,type;
+    TextView name,phone,address,cost;
     DrawerLayout screendarwer;
+    public static String coachId,carId;
+    public void getFullInfo(String id){
+        ParseQuery<ParseObject> coachInfo=ParseQuery.getQuery("Coach");
+        coachInfo.whereEqualTo("objectId",id);
+        coachInfo.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                if(e==null&&object!=null){
+                    ParseFile image=object.getParseFile("image");
+                    image.getDataInBackground(new GetDataCallback() {
+                        @Override
+                        public void done(byte[] data, ParseException e) {
+                            if(e==null && data !=null){
+                                Bitmap map= BitmapFactory.decodeByteArray
+                                        (data,0,data.length);
+                                profile.setImageBitmap(map);
+                            }
+                        }
+                    });
+                    name.setText(object.getString("name"));
+                    phone.setText(object.getString("phone"));
+                    address.setText(object.getString("address"));
+                    cost.setText(object.getString("cost"));
+                    carId=object.getParseObject("car").getObjectId();
+                    Log.i("car",carId);
+                }
+
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +65,9 @@ public class ShowCoachInfo extends AppCompatActivity {
         phone=(TextView)findViewById(R.id.coachphone);
         address=(TextView)findViewById(R.id.coachaddress);
         cost=(TextView)findViewById(R.id.coachcost);
-        type=(TextView)findViewById(R.id.coachtype);
+        Intent inme=getIntent();
+        coachId=inme.getStringExtra("coachid");
+        getFullInfo(coachId);
     }
     public void cancelCoachInfoView(View view) {
         // via this method we just back to the coach list
@@ -36,6 +79,7 @@ public class ShowCoachInfo extends AppCompatActivity {
          car information before send training request
          */
         Intent moveToCarInfo=new Intent(ShowCoachInfo.this,CarInfo.class);
+
         startActivity(moveToCarInfo);
     }
     //Drawer Mange Methods
@@ -55,26 +99,23 @@ public class ShowCoachInfo extends AppCompatActivity {
     // All Following method that connected with drawer menu items
     // (1) Home Item
     public void HomeItemClicked(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backtoHome = new Intent(ShowCoachInfo.this,MainTrainerScreen.class);
+        startActivity(backtoHome);
     }
-    // (2) Update Account Info
-    public void UpdateAccountInfo(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (3 ) SeeMyRequest
-    public void SeeMyRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (4 ) SeeMyRequest
+    // (2) SeeMyRequest
     public void SendSpecialRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent moveTosend=new Intent(ShowCoachInfo.this,sendRequest.class);
+        moveTosend.putExtra("dir","random");
+        startActivity(moveTosend);
     }
-    // (5 ) ClickAboutUS
+    // (3) ClickAboutUS
     public void ClickAboutUS (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent about=new Intent(ShowCoachInfo.this,AboutUs.class);
+        startActivity(about);
     }
-    // (6 ) ClickLogout
+    // (4) ClickLogout
     public void ClickLogout (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backTomain=new Intent(ShowCoachInfo.this,MainActivity.class);
+        startActivity(backTomain);
     }
 }

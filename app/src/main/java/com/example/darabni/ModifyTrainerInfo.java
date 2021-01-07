@@ -9,6 +9,12 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapEditText;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import com.parse.SaveCallback;
+
 public class ModifyTrainerInfo extends AppCompatActivity {
     BootstrapEditText name,email,phone;
     DrawerLayout screenDrawer;
@@ -17,17 +23,16 @@ public class ModifyTrainerInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_trainer_info);
         Intent dataReceiver=getIntent();
-        String rname,rphone,rmail;
+        String rname,rphone;
         rname=dataReceiver.getStringExtra("uname");
         rphone=dataReceiver.getStringExtra("uphone");
-        rmail=dataReceiver.getStringExtra("umail");
         name=(BootstrapEditText)findViewById(R.id.txt_name);
         phone=(BootstrapEditText)findViewById(R.id.txt_phone);
         email=(BootstrapEditText)findViewById(R.id.txt_email);
         screenDrawer=(DrawerLayout)findViewById(R.id.modifyTrainerDrawer);
         name.setText(rname);
         phone.setText(rphone);
-        email.setText(rmail);
+        email.setText(MainTrainerScreen.userEmail);
     }
 
     public void cancelModifyOperation(View view) {
@@ -48,7 +53,26 @@ public class ModifyTrainerInfo extends AppCompatActivity {
         if the update information operation done successfully we print massage and
         back to previous screen .
         * */
-        Toast.makeText(this, "Update info not Activate yet", Toast.LENGTH_SHORT).show();
+        ParseQuery<ParseObject> userData= ParseQuery.getQuery("Trainee");
+        userData.whereEqualTo("objectId",MainTrainerScreen.userId);
+        userData.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                if(object!=null&&e==null){
+                    object.put("username",newName);
+                    object.put("phone",newPhone);
+                    object.put("email",newEmail);
+                    object.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if(e==null){
+                                finish();
+                            }
+                        }
+                    });
+                }
+            }
+        });
     }
     //Drawer Mange Methods
     public void onMenuClicked(View view) {
@@ -67,26 +91,23 @@ public class ModifyTrainerInfo extends AppCompatActivity {
     // All Following method that connected with drawer menu items
     // (1) Home Item
     public void HomeItemClicked(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backtoHome = new Intent(ModifyTrainerInfo.this,MainTrainerScreen.class);
+        startActivity(backtoHome);
     }
-    // (2) Update Account Info
-    public void UpdateAccountInfo(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (3 ) SeeMyRequest
-    public void SeeMyRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (4 ) SeeMyRequest
+    // (2) SeeMyRequest
     public void SendSpecialRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent moveTosend=new Intent(ModifyTrainerInfo.this,sendRequest.class);
+        moveTosend.putExtra("dir","random");
+        startActivity(moveTosend);
     }
-    // (5 ) ClickAboutUS
+    // (3) ClickAboutUS
     public void ClickAboutUS (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent about=new Intent(ModifyTrainerInfo.this,AboutUs.class);
+        startActivity(about);
     }
-    // (6 ) ClickLogout
+    // (4) ClickLogout
     public void ClickLogout (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backTomain=new Intent(ModifyTrainerInfo.this,MainActivity.class);
+        startActivity(backTomain);
     }
 }

@@ -31,25 +31,25 @@ public class SeeLastRequest extends AppCompatActivity {
     // All Following method that connected with drawer menu items
     // (1) Home Item
     public void CenterAdminHome(View view){
-
+        Intent intent=new Intent(SeeLastRequest.this,CenterMainScreen.class);
+        startActivity(intent);
     }
     // (2) CenterAddCoach
     public void CenterAddCoach(View view){
-
+        Intent move=new Intent(SeeLastRequest.this,AddNewCoach.class);
+        startActivity(move);
     }
-    // (3 ) CenterNeedSupport
-    public void CenterNeedSupport (View view){
-
-    }
-    // (4 ) AdminClickLogout
+    // (3 ) AdminClickLogout
     public void AdminClickLogout (View view){
-
+        Intent backTomain=new Intent(SeeLastRequest.this,MainActivity.class);
+        startActivity(backTomain);
     }
 
     public void SeeCustomizedRequest(View view) {
         //via this method we see the request info
         Intent moveToReqestList=new Intent
                 (SeeLastRequest.this,requestList.class);
+        moveToReqestList.putExtra("key","custom");
         startActivity(moveToReqestList);
     }
 
@@ -58,6 +58,7 @@ public class SeeLastRequest extends AppCompatActivity {
         // the different between the to method is the displayed requests
         Intent moveToReqestList=new Intent
                 (SeeLastRequest.this,requestList.class);
+        moveToReqestList.putExtra("key","random");
         startActivity(moveToReqestList);
     }
 }

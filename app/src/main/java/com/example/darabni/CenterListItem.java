@@ -5,9 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -17,15 +20,80 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 public class CenterListItem extends AppCompatActivity {
     ListView centerlist;
     DrawerLayout screenDrawer;
     Spinner fillterOptionList;
     String fillterOption="null";
-    ArrayList<String> centerNames,centerAddress,centerPhones;
+    ArrayList<String> centerNames,centerAddress,centerPhones,centerId;
     ArrayList<Bitmap>centerImages;
+    ArrayAdapter arrayAdapter,arrayAdapter2;
+    public void getCenterInfo(String fillter){
+        if(fillter.equals("All City")){
+            centerId.clear();
+            centerAddress.clear();
+            centerNames.clear();
+            centerPhones.clear();
+            ParseQuery<ParseObject>centerQuery=ParseQuery.getQuery("Center");
+            centerQuery.whereEqualTo("activation",true);
+            centerQuery.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+                    if(e==null&objects!=null&&objects.size()>0){
+                        for(ParseObject center:objects){
+                            //get Names ,address,id,phone
+                            centerId.add(center.getObjectId().toString());
+                            centerNames.add(center.getString("centername"));
+                            centerAddress.add(center.getString("address"));
+                            centerPhones.add(center.getString("phone"));
+                            arrayAdapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            });
+        }else {
+            String bodyOfQuery =fillter;
+            centerId.clear();
+            centerAddress.clear();
+            centerNames.clear();
+            centerPhones.clear();
+            ParseQuery<ParseObject> centerQuery = ParseQuery.getQuery("Center");
+            centerQuery.whereEqualTo("activation", true);
+            centerQuery.whereEqualTo("address", bodyOfQuery);
+            centerQuery.findInBackground(new FindCallback<ParseObject>() {
+                @Override
+                public void done(List<ParseObject> objects, ParseException e) {
+                    if (e == null & objects != null && objects.size() > 0) {
+                        for (ParseObject center : objects) {
+                            //get Names ,address,id,phone
+                            centerId.add(center.getObjectId().toString());
+                            centerNames.add(center.getString("centername"));
+                            centerAddress.add(center.getString("address"));
+                            centerPhones.add(center.getString("phone"));
+                            arrayAdapter.notifyDataSetChanged();
+                        }
+                    } else if (objects.size() == 0) {
+                        centerId.clear();
+                        centerAddress.clear();
+                        centerNames.clear();
+                        centerPhones.clear();
+                        Toast.makeText(CenterListItem.this, "There is no Center in" + fillter, Toast.LENGTH_SHORT).show();
+                        getCenterInfo("All City");
+
+                    }
+                }
+            });
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,29 +107,34 @@ public class CenterListItem extends AppCompatActivity {
         centerNames=new ArrayList<String>();
         centerAddress=new ArrayList<String>();
         centerPhones=new ArrayList<String>();
-        /*
-        Assign Value for array list for examples
-         */
-        centerNames.add("Heros Center");
-        centerAddress.add("Amman");
-        centerPhones.add("065338585");
+        centerId=new ArrayList<String>();
         //In this screen we going to fetch all center information from server
         // and display it on the list view
         // and we have a drop down menu that allow the user do
         // special query (filter the result depending on city name and center address)
+        //getCenterInfo(fillterOption);
         fillterOptionList=(Spinner)findViewById(R.id.fillterList);
         String [] city_name=getResources().getStringArray(R.array.City);
-        ArrayAdapter arrayAdapter2=new ArrayAdapter
+        arrayAdapter2=new ArrayAdapter
                 (CenterListItem.this, android.R.layout.simple_list_item_1,city_name);
         fillterOptionList.setAdapter(arrayAdapter2);
         fillterOptionList.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 fillterOption=city_name[position];
+                centerId.clear();
+                centerAddress.clear();
+                centerNames.clear();
+                centerPhones.clear();
+                getCenterInfo(fillterOption);
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                fillterOption="null";
+                centerId.clear();
+                centerAddress.clear();
+                centerNames.clear();
+                centerPhones.clear();
+                fillterOption="All City";
             }
         });
         /*
@@ -70,7 +143,7 @@ public class CenterListItem extends AppCompatActivity {
          */
         centerlist=(ListView) findViewById(R.id.listcenteritemview);
         //Set the Adapter
-        ArrayAdapter arrayAdapter=new ArrayAdapter(CenterListItem.this
+        arrayAdapter=new ArrayAdapter(CenterListItem.this
                 ,R.layout.detailedcenterlistitem,R.id.item1,centerNames){
             @NonNull
             @Override
@@ -95,7 +168,32 @@ public class CenterListItem extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent moveToCoachSearching=new Intent
                         (CenterListItem.this,searchForCoach.class);
+                moveToCoachSearching.putExtra("centerid",centerId.get(position));
                 startActivity(moveToCoachSearching);
+            }
+        });
+        centerlist.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                new AlertDialog.Builder(CenterListItem.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Are you Sure ?")
+                        .setMessage("Are you Need to Send Problem Report Againest this center ?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent moveToSendReport=new Intent
+                                        (CenterListItem.this,problems.class);
+                                moveToSendReport.putExtra("centerid",centerId.get(i));
+                                startActivity(moveToSendReport);
+                            }
+                        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // here we don't do any thing
+                    }
+                }).show();
+                return false;
             }
         });
     }
@@ -116,22 +214,23 @@ public class CenterListItem extends AppCompatActivity {
     // All Following method that connected with drawer menu items
     // (1) Home Item
     public void HomeItemClicked(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backtoHome = new Intent(CenterListItem.this,MainTrainerScreen.class);
+        startActivity(backtoHome);
     }
-    // (2) Update Account Info
-    public void UpdateAccountInfo(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (4 ) SeeMyRequest
+    // (2) SeeMyRequest
     public void SendSpecialRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent moveTosend=new Intent(CenterListItem.this,sendRequest.class);
+        moveTosend.putExtra("dir","random");
+        startActivity(moveTosend);
     }
-    // (5 ) ClickAboutUS
+    // (3) ClickAboutUS
     public void ClickAboutUS (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent about=new Intent(CenterListItem.this,AboutUs.class);
+        startActivity(about);
     }
-    // (6 ) ClickLogout
+    // (4) ClickLogout
     public void ClickLogout (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backTomain=new Intent(CenterListItem.this,MainActivity.class);
+        startActivity(backTomain);
     }
 }

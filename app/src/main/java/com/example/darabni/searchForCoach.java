@@ -17,13 +17,43 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class searchForCoach extends AppCompatActivity {
     ListView coachList;
     DrawerLayout screendrawer;
     ArrayList<Bitmap>coachProfileImage;
-    ArrayList<String>coachNames,coachTrainingType,coachPhones;
+    ArrayList<String>coachNames,coachSessionCost,coachPhones,coachId;
+    ArrayAdapter coachListAdapter;
+    public static String centerId;
+    public void getoachInfo (String id){
+        ParseQuery<ParseObject> coachQuery=ParseQuery.getQuery("Coach");
+        coachQuery.whereEqualTo("centerid",id);
+        coachQuery.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if(objects!=null&&objects.size()>0&&e==null){
+                    for (ParseObject coach:objects){
+                        coachNames.add(coach.getString("name"));
+                        coachPhones.add(coach.getString("phone"));
+                        coachSessionCost.add(coach.getString("cost"));
+                        coachId.add(coach.getObjectId());
+                        coachListAdapter.notifyDataSetChanged();
+                    }
+                }else if(objects.size()==0){
+                    Toast.makeText(searchForCoach.this,"No Coah Available",Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,26 +61,26 @@ public class searchForCoach extends AppCompatActivity {
         /*
         Define array list and fill the object
          */
+        Intent ine=getIntent();
+        centerId=ine.getStringExtra("centerid");
+        getoachInfo(centerId);
         coachProfileImage=new ArrayList<Bitmap>();
         coachNames=new ArrayList<String>();
-        coachTrainingType=new ArrayList<String>();
+        coachSessionCost=new ArrayList<String>();
         coachPhones=new ArrayList<String>();
-        //assign values
-        coachNames.add("Raed Ayman AL-abadi");
-        coachTrainingType.add("Personal cars");
-        coachPhones.add("0787877001");
+        coachId=new ArrayList<String>();
         //**********************************************************
         screendrawer=(DrawerLayout)findViewById(R.id.drawerCoach);
         coachList=(ListView)findViewById(R.id.list2);
-        ArrayAdapter coachListAdapter=new ArrayAdapter(searchForCoach.this
+        coachListAdapter=new ArrayAdapter(searchForCoach.this
                 ,R.layout.coachlistdesign,R.id.coachListName,coachNames){
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 View view3= super.getView(position, convertView, parent);
-                TextView type=(TextView)view3.findViewById(R.id.coachListTraining);
+                TextView cost=(TextView)view3.findViewById(R.id.coachListTraining);
                 TextView phone=(TextView)view3.findViewById(R.id.coachListPhone);
-                type.setText(coachTrainingType.get(position));
+                cost.setText(coachSessionCost.get(position));
                 phone.setText(coachPhones.get(position));
                 return view3;
             }
@@ -66,6 +96,7 @@ public class searchForCoach extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent moveToSeeCoachFullInfo=new Intent
                         (searchForCoach.this,ShowCoachInfo.class);
+                moveToSeeCoachFullInfo.putExtra("coachid",coachId.get(position));
                 startActivity(moveToSeeCoachFullInfo);
             }
         });
@@ -87,26 +118,23 @@ public class searchForCoach extends AppCompatActivity {
     // All Following method that connected with drawer menu items
     // (1) Home Item
     public void HomeItemClicked(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backtoHome = new Intent(searchForCoach.this,MainTrainerScreen.class);
+        startActivity(backtoHome);
     }
-    // (2) Update Account Info
-    public void UpdateAccountInfo(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (3 ) SeeMyRequest
-    public void SeeMyRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (4 ) SeeMyRequest
+    // (2) SeeMyRequest
     public void SendSpecialRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent moveTosend=new Intent(searchForCoach.this,sendRequest.class);
+        moveTosend.putExtra("dir","random");
+        startActivity(moveTosend);
     }
-    // (5 ) ClickAboutUS
+    // (3) ClickAboutUS
     public void ClickAboutUS (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent about=new Intent(searchForCoach.this,AboutUs.class);
+        startActivity(about);
     }
-    // (6 ) ClickLogout
+    // (4) ClickLogout
     public void ClickLogout (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backTomain=new Intent(searchForCoach.this,MainActivity.class);
+        startActivity(backTomain);
     }
 }

@@ -41,7 +41,8 @@
             app:bootstrapSize="xl"
             app:buttonMode="regular"
             app:roundedCorners="true"
-            app:showOutline="false" />
+            app:showOutline="false"
+            tools:ignore="OnClick" />
     </LinearLayout>
     <TextView
         android:layout_width="match_parent"
@@ -123,9 +124,10 @@
     <Spinner android:id="@+id/spn_trainType2"
         android:layout_width="match_parent"
         android:layout_marginTop="0dp"
-        android:layout_height="40dp"
+        android:layout_height="wrap_content"
         android:entries="@array/type"
-        android:layout_below="@id/txt_trainType"
+        android:layout_margin="10dp"
+        android:backgroundTint="#130400"
         />
     <com.beardedhen.androidbootstrap.BootstrapButton
         android:layout_width="wrap_content"

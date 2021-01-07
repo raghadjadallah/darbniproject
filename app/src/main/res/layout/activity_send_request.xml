@@ -42,6 +42,8 @@
                       android:layout_marginTop="8dp"
                       android:orientation="horizontal">
                       <CheckBox
+                          android:id="@+id/time1"
+                          android:onClick="onTimeSelect"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:fontFamily="@font/text3"
@@ -51,6 +53,8 @@
                           android:textStyle="italic|bold"
                           android:textSize="7pt"/>
                       <CheckBox
+                          android:id="@+id/time2"
+                          android:onClick="onTimeSelect"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:fontFamily="@font/text3"
@@ -66,6 +70,8 @@
                       android:layout_marginTop="8dp"
                       android:orientation="horizontal">
                       <CheckBox
+                          android:id="@+id/time3"
+                          android:onClick="onTimeSelect"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:fontFamily="@font/text3"
@@ -75,6 +81,8 @@
                           android:textStyle="italic|bold"
                           android:textSize="7pt"/>
                       <CheckBox
+                          android:id="@+id/time4"
+                          android:onClick="onTimeSelect"
                           android:layout_width="wrap_content"
                           android:layout_height="wrap_content"
                           android:fontFamily="@font/text3"
@@ -98,7 +106,9 @@
             <com.beardedhen.androidbootstrap.BootstrapEditText
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
+                android:id="@+id/requestnote"
                 app:bootstrapBrand="info"
+                android:textColor="#130400 "
                 android:layout_marginTop="30dp"
                 app:bootstrapSize="md" />
             <LinearLayout
@@ -107,9 +117,7 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="50dp">
                 <com.beardedhen.androidbootstrap.BootstrapButton
-                    android:id="@+id/b1"
                     android:layout_width="wrap_content"
-
                     android:layout_height="70dp"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="13dp"
@@ -144,7 +152,7 @@
         </LinearLayout>
     </LinearLayout>
     <RelativeLayout
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="match_parent"
         android:background="#FFFFFF"
         android:layout_gravity="start"

@@ -5,10 +5,19 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.parse.GetCallback;
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -16,6 +25,32 @@ public class showCarInfoRelatedForCenter extends AppCompatActivity {
     CircleImageView imageView;
     TextView manufactor,type,gear,model;
     DrawerLayout screendrawer;
+    public void getMyCarInfo(String carid){
+        ParseQuery<ParseObject> carQuery=ParseQuery.getQuery("Car");
+        carQuery.whereEqualTo("objectId",carid);
+        carQuery.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                if(object!=null && e==null){
+                    ParseFile image=object.getParseFile("image");
+                    image.getDataInBackground(new GetDataCallback() {
+                        @Override
+                        public void done(byte[] data, ParseException e) {
+                            if(e==null && data !=null){
+                                Bitmap map= BitmapFactory.decodeByteArray
+                                        (data,0,data.length);
+                                imageView.setImageBitmap(map);
+                            }
+                        }
+                    });
+                    manufactor.setText(object.getString("manufactor"));
+                    type.setText(object.getString("modelname"));
+                    model.setText(object.getString("model"));
+                    gear.setText(object.getString("gear"));
+                }
+            }
+        });
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,12 +61,9 @@ public class showCarInfoRelatedForCenter extends AppCompatActivity {
         type=(TextView)findViewById(R.id.carname);
         gear=(TextView)findViewById(R.id.cargear);
         model=(TextView)findViewById(R.id.carmodel);
+        getMyCarInfo(showCoachInfoRelatedForCenter.carIdRelated2);
     }
-    public void cancelCarInfoView(View view) {/*
-          back to previous screen
-         */
-        finish();
-    }
+
     //Drawer Mange Methods
     public void onMenuClicked(View view) {
         openDrawer(screendrawer);
@@ -48,27 +80,18 @@ public class showCarInfoRelatedForCenter extends AppCompatActivity {
     }
     // All Following method that connected with drawer menu items
     // (1) Home Item
-    public void HomeItemClicked(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+    public void CenterAdminHome(View view){
+        Intent i=new Intent(showCarInfoRelatedForCenter.this,CenterMainScreen.class);
+        startActivity(i);
     }
-    // (2) Update Account Info
-    public void UpdateAccountInfo(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+    // (2) CenterAddCoach
+    public void CenterAddCoach(View view){
+        Intent move=new Intent(showCarInfoRelatedForCenter.this,AddNewCoach.class);
+        startActivity(move);
     }
-    // (3 ) SeeMyRequest
-    public void SeeMyRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (4 ) SeeMyRequest
-    public void SendSpecialRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (5 ) ClickAboutUS
-    public void ClickAboutUS (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (6 ) ClickLogout
-    public void ClickLogout (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+    // (3 ) AdminClickLogout
+    public void AdminClickLogout (View view){
+        Intent backTomain=new Intent(showCarInfoRelatedForCenter.this,MainActivity.class);
+        startActivity(backTomain);
     }
 }

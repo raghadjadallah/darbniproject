@@ -22,18 +22,17 @@
             android:layout_height="match_parent"
             android:background="#fff4eb"
             android:orientation="vertical"
-            tools:context=".addcoach">
+            >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
                 <de.hdodenhof.circleimageview.CircleImageView
                     xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/profile_image"
+                    android:id="@+id/coachprofile_image"
                     android:layout_width="135dp"
                     android:layout_height="135dp"
                     android:src="@drawable/img1"
-
                     app:civ_border_width="2dp"
                     android:layout_gravity="center_horizontal"
                     app:civ_border_color="#FF000000"/>
@@ -46,6 +45,7 @@
                     android:text="Upload Image"
                     android:layout_gravity="center"
                     app:bootstrapSize="xl"
+                    android:onClick="ChangeCoachImage"
                     android:layout_marginLeft="25dp"
                     app:buttonMode="regular"
                     app:roundedCorners="true"
@@ -59,7 +59,7 @@
             <LinearLayout
                 android:layout_marginTop="0dp"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="400dp"
                 android:orientation="vertical"
                 android:padding="10dp">
                 <TextView
@@ -73,12 +73,11 @@
                     android:translationX="10dp"
                     android:translationY="20dp"/>
                 <com.beardedhen.androidbootstrap.BootstrapEditText
-
+                    android:id="@+id/addcoachname"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     app:bootstrapSize="md"
                     app:bootstrapBrand="info"
-
                     android:layout_marginTop="25dp"
                     android:inputType="text"
                     android:textColor="#130400"
@@ -90,14 +89,13 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/text3"
                     android:text="Phone :"
-
                     android:textSize="9pt"
                     android:textStyle="bold"
                     android:textColor="#130400"
                     android:translationX="10dp"
                     android:translationY="20dp"/>
                 <com.beardedhen.androidbootstrap.BootstrapEditText
-
+                    android:id="@+id/addcoachphone"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     app:bootstrapSize="md"
@@ -121,7 +119,7 @@
                     android:translationX="10dp"
                     android:translationY="20dp"/>
                 <com.beardedhen.androidbootstrap.BootstrapEditText
-
+                    android:id="@+id/addcoachaddress"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     app:bootstrapSize="md"
@@ -129,15 +127,35 @@
                     android:inputType="text"
                     android:textColor="#130400"
                     android:layout_marginTop="8dp"
-
+                    android:translationY="20dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:text="Session Cost :"
+                    android:fontFamily="@font/text3"
+                    android:textSize="9pt"
+                    android:textStyle="bold"
+                    android:textColor="#130400"
+                    android:translationX="10dp"
+                    android:translationY="20dp"/>
+                <com.beardedhen.androidbootstrap.BootstrapEditText
+                    android:id="@+id/addcoachcost"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:bootstrapSize="md"
+                    app:bootstrapBrand="info"
+                    android:inputType="number"
+                    android:textColor="#130400"
+                    android:layout_marginTop="8dp"
                     android:translationY="20dp"/>
             </LinearLayout>
             <com.beardedhen.androidbootstrap.BootstrapButton
                 android:id="@+id/button5"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="0dp"
                 android:backgroundTint="#ff6827"
                 android:text="NEXT"
                 android:onClick="CompleteAddingCoach"

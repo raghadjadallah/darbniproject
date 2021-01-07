@@ -13,13 +13,39 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CenterInfoScreen extends AppCompatActivity {
     ListView centerListInfo;
-    ArrayList<Bitmap>centerImage;
-    ArrayList<String>centerName;
-    ArrayList<String>centerAddress;
+
+    ArrayList<String>centerName, centerAddress, centerId, centerPhone;
+    ArrayAdapter centerInfoList;
+
+    public void getCenterInformation(){
+        ParseQuery<ParseObject>allCenter=ParseQuery.getQuery("Center");
+        allCenter.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, ParseException e) {
+                if(e==null&&objects!=null&&objects.size()>0){
+                    for(ParseObject center:objects){
+                        centerId.add(center.getObjectId());
+                        centerName.add(center.getString("centername"));
+                        centerAddress.add(center.getString("address"));
+                        centerPhone.add(center.getString("phone"));
+                        centerInfoList.notifyDataSetChanged();
+                    }
+
+                }
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +55,12 @@ public class CenterInfoScreen extends AppCompatActivity {
           // when the admin click on item (center) we going to move to new screen
           // that allow the admin to manage the centers accounts
          //Define Array List
-        centerImage=new ArrayList<Bitmap>();
         centerName=new ArrayList<String>();
         centerAddress=new ArrayList<String>();
-        //Assign Value
-        centerName.add("Salt Center");
-        centerAddress.add("As-Salt city center");
+        centerId=new ArrayList<String>();
+        centerPhone=new ArrayList<String>();
         // Create Adapter
-        ArrayAdapter centerInfoList=new ArrayAdapter(CenterInfoScreen.this
+        centerInfoList=new ArrayAdapter(CenterInfoScreen.this
                 ,R.layout.centerinfolistdesign,R.id.centerNameText,centerName){
             @NonNull
             @Override
@@ -59,8 +83,12 @@ public class CenterInfoScreen extends AppCompatActivity {
                  */
                 Intent moveToManageScreen=new Intent
                         (CenterInfoScreen.this,manageCenter.class);
+                moveToManageScreen.putExtra("cid",centerId.get(position));
+                moveToManageScreen.putExtra("cphone",centerPhone.get(position));
+                moveToManageScreen.putExtra("cname",centerName.get(position));
                 startActivity(moveToManageScreen);
             }
         });
+        getCenterInformation();
     }
 }

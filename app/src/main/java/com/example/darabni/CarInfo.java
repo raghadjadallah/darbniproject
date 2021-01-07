@@ -5,10 +5,19 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.parse.GetCallback;
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -16,6 +25,32 @@ public class CarInfo extends AppCompatActivity {
     CircleImageView imageView;
     TextView manufactor,type,gear,model;
     DrawerLayout screendrawer;
+    public void getCarInfo(String carid){
+        ParseQuery<ParseObject>carQuery=ParseQuery.getQuery("Car");
+        carQuery.whereEqualTo("objectId",carid);
+        carQuery.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                if(e==null&&object!=null){
+                    ParseFile image=object.getParseFile("image");
+                    image.getDataInBackground(new GetDataCallback() {
+                        @Override
+                        public void done(byte[] data, ParseException e) {
+                            if (e == null && data != null) {
+                                Bitmap map= BitmapFactory.decodeByteArray(data,0,data.length);
+                                imageView.setImageBitmap(map);
+                            }
+                        }
+                    });
+                    manufactor.setText(object.getString("manufactor"));
+                    type.setText(object.getString("modelname"));
+                    model.setText(object.getString("model"));
+                    gear.setText(object.getString("gear"));
+                }
+            }
+        });
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +61,7 @@ public class CarInfo extends AppCompatActivity {
         type=(TextView)findViewById(R.id.carname);
         gear=(TextView)findViewById(R.id.cargear);
         model=(TextView)findViewById(R.id.carmodel);
+        getCarInfo(ShowCoachInfo.carId);
     }
 
     public void goToSubmitRequest(View view) {
@@ -35,6 +71,7 @@ public class CarInfo extends AppCompatActivity {
          */
         Intent moveToSendRequest=new Intent
                 (CarInfo.this,sendRequest.class);
+        moveToSendRequest.putExtra("dir","custom");
         startActivity(moveToSendRequest);
 
     }
@@ -62,26 +99,23 @@ public class CarInfo extends AppCompatActivity {
     // All Following method that connected with drawer menu items
     // (1) Home Item
     public void HomeItemClicked(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backtoHome = new Intent(CarInfo.this,MainTrainerScreen.class);
+        startActivity(backtoHome);
     }
-    // (2) Update Account Info
-    public void UpdateAccountInfo(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (3 ) SeeMyRequest
-    public void SeeMyRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (4 ) SeeMyRequest
+    // (2) SeeMyRequest
     public void SendSpecialRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent moveTosend=new Intent(CarInfo.this,sendRequest.class);
+        moveTosend.putExtra("dir","random");
+        startActivity(moveTosend);
     }
-    // (5 ) ClickAboutUS
+    // (3) ClickAboutUS
     public void ClickAboutUS (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent about=new Intent(CarInfo.this,AboutUs.class);
+        startActivity(about);
     }
-    // (6 ) ClickLogout
+    // (4) ClickLogout
     public void ClickLogout (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backTomain=new Intent(CarInfo.this,MainActivity.class);
+        startActivity(backTomain);
     }
 }

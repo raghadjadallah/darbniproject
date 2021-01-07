@@ -18,6 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.beardedhen.androidbootstrap.BootstrapEditText;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 public class MainActivity extends AppCompatActivity {
     //The  Screen number 1 in application
     BootstrapEditText username;
@@ -59,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
           }
       });
     }
+
     public void loginMethod(View view) {
         String usernameValue=username.getText().toString();
         String passwordValue=password.getText().toString();
@@ -75,25 +81,40 @@ public class MainActivity extends AppCompatActivity {
                     // There We will write all necessary code for login operation
                         // if the login operation done successfully the the user will
                             // moved into Center Screen via Intent Object
-                if (usernameValue.equals("jasser")&&passwordValue.equals("0000")){
-                    //Toast.makeText(this, "Login as Center Done", Toast.LENGTH_SHORT).show();
-                    Intent movetoCenterScreen=new Intent(MainActivity.this,CenterMainScreen.class);
-                    startActivity(movetoCenterScreen);
-                }else {
-                    Toast.makeText(this, "Invalid login info", Toast.LENGTH_SHORT).show();
-                }
+                ParseQuery<ParseObject>centerLOGIN=ParseQuery.getQuery("Center");
+                centerLOGIN.whereEqualTo("owneremail",usernameValue);
+                centerLOGIN.whereEqualTo("password",passwordValue);
+                centerLOGIN.getFirstInBackground(new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if (object!=null&&e==null){
+                            Intent moveToCenterMainScreen=new Intent
+                                    (MainActivity.this,CenterMainScreen.class);
+                            moveToCenterMainScreen.putExtra("oid",object.getObjectId().toString());
+                            startActivity(moveToCenterMainScreen);
+                        }else {
+                            Toast.makeText(MainActivity.this, "This center does not exist", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
             }else {
-                //the second option will be login as a normal user
-                // There We will write all necessary code for login operation
-                // if the login operation done successfully the the user will
-                // moved into Trainer Screen via Intent Object
-                if (usernameValue.equals("noor")&&passwordValue.equals("1234")){
-                    //Toast.makeText(this, "Login as Trainer Done", Toast.LENGTH_SHORT).show();
-                    Intent movetoTrainerScreen=new Intent(MainActivity.this,MainTrainerScreen.class);
-                    startActivity(movetoTrainerScreen);
-                }else {
-                    Toast.makeText(this, "Invalid login info", Toast.LENGTH_SHORT).show();
-                }
+                ParseQuery<ParseObject>userLogin=ParseQuery.getQuery("Trainee");
+                userLogin.whereEqualTo("email",usernameValue);
+                userLogin.whereEqualTo("password",passwordValue);
+                userLogin.getFirstInBackground(new GetCallback<ParseObject>() {
+                    @Override
+                    public void done(ParseObject object, ParseException e) {
+                        if(e==null&&object!=null){
+                            Intent moveToUserMain=new Intent
+                                    (MainActivity.this,MainTrainerScreen.class);
+                            moveToUserMain.putExtra("oid",object.getObjectId().toString());
+                            startActivity(moveToUserMain);
+                        }else{
+                            Toast.makeText(MainActivity.this, "This trainee does not exist", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
             }
         }
     }

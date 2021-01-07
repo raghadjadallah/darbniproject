@@ -2,15 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.darabni">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-permission android:name="android.premission.Manifest.MODIFY_PHONE_STATE"/>
+
     <application
-        android:name=".parseStarter"
+        android:name=".parseDataServer"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Design.NoActionBar">
-        <activity android:name=".CenterListItem"></activity>
+        android:targetSandboxVersion="1"
+        android:theme="@style/Theme.Design.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".RequestInfo" />
+        <activity android:name=".problems" />
+        <activity android:name=".CenterListItem" />
         <activity android:name=".showCarInfoRelatedForCenter" />
         <activity android:name=".showCoachInfoRelatedForCenter" />
         <activity android:name=".displayCoachList" />

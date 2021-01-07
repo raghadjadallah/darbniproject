@@ -8,6 +8,11 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.beardedhen.androidbootstrap.BootstrapEditText;
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
 public class SuperVisorLogin extends AppCompatActivity {
     BootstrapEditText susername,spassword;
     @Override
@@ -31,13 +36,21 @@ public class SuperVisorLogin extends AppCompatActivity {
         if (username.matches("") || pasword.matches("")){
             Toast.makeText(this, "Please Enter valid data", Toast.LENGTH_SHORT).show();
         }else {
-            // Go and Apply login operation for supervisor
-            if(username.equals("majd")&&pasword.equals("1111")){
-                Intent moveToSuperVisorLogin=new Intent(SuperVisorLogin.this,SuperVisorMainScreen.class);
-                startActivity(moveToSuperVisorLogin);
-            }else {
-                Toast.makeText(this, "Somethings Wrong ! ", Toast.LENGTH_SHORT).show();
-            }
+            ParseQuery<ParseObject>loginQuery=ParseQuery.getQuery("Admin");
+            loginQuery.whereEqualTo("username",username);
+            loginQuery.whereEqualTo("password",pasword);
+            loginQuery.getFirstInBackground(new GetCallback<ParseObject>() {
+                @Override
+                public void done(ParseObject object, ParseException ex) {
+                    if(object!=null&&ex==null){
+                        Intent move=new Intent(SuperVisorLogin.this,SuperVisorMainScreen.class);
+                        startActivity(move);
+                    }else {
+                        Toast.makeText(SuperVisorLogin.this, "Error While Login", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+            });
         }
     }
 }

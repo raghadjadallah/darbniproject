@@ -5,10 +5,19 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.parse.GetCallback;
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseFile;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -16,15 +25,102 @@ public class MainTrainerScreen extends AppCompatActivity {
     CircleImageView userimage;
     TextView name,phone,mail;
     DrawerLayout drawerMenuForScreen;
+    public static String userId,userEmail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_trainer_screen);
-                userimage=(CircleImageView)findViewById(R.id.profile_image);
+        Intent getdata=getIntent();
+        if (this.getIntent().getExtras() != null && this.getIntent().getExtras().containsKey("oid")){
+            String a=getdata.getStringExtra("oid");
+            userId=a;
+            //get data from server
+            ParseQuery<ParseObject>userData=ParseQuery.getQuery("Trainee");
+            userData.whereEqualTo("objectId",userId);
+            userData.getFirstInBackground(new GetCallback<ParseObject>() {
+                @Override
+                public void done(ParseObject object, ParseException e) {
+                    name.setText(object.getString("username"));
+                    phone.setText(object.getString("phone"));
+                    mail.setText(object.getString("email"));
+                    userEmail=object.getString("email");
+                    ParseFile image=object.getParseFile("image");
+                    image.getDataInBackground(new GetDataCallback() {
+                        @Override
+                        public void done(byte[] data, ParseException e) {
+                            if(e==null && data !=null){
+                                Bitmap map= BitmapFactory.decodeByteArray
+                                        (data,0,data.length);
+                                userimage.setImageBitmap(map);
+                            }
+                        }
+                    });
+                }
+            });
+
+        } else {
+            // Do something else
+            onStart();
+        }
+        userimage=(CircleImageView)findViewById(R.id.profile_image);
                 name=(TextView)findViewById(R.id.username) ;
                 phone=(TextView)findViewById(R.id.userphone) ;
                 mail=(TextView)findViewById(R.id.usermail) ;
-                drawerMenuForScreen=(DrawerLayout)findViewById(R.id.mainTrainerDrawer);
+        drawerMenuForScreen=(DrawerLayout)findViewById(R.id.mainTrainerDrawer);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        ParseQuery<ParseObject>userData=ParseQuery.getQuery("Trainee");
+        userData.whereEqualTo("objectId",userId);
+        userData.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                name.setText(object.getString("username"));
+                phone.setText(object.getString("phone"));
+                mail.setText(object.getString("email"));
+                userEmail=object.getString("email");
+                ParseFile image=object.getParseFile("image");
+                image.getDataInBackground(new GetDataCallback() {
+                    @Override
+                    public void done(byte[] data, ParseException e) {
+                        if(e==null && data !=null){
+                            Bitmap map= BitmapFactory.decodeByteArray
+                                    (data,0,data.length);
+                            userimage.setImageBitmap(map);
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        ParseQuery<ParseObject>userData=ParseQuery.getQuery("Trainee");
+        userData.whereEqualTo("objectId",userId);
+        userData.getFirstInBackground(new GetCallback<ParseObject>() {
+            @Override
+            public void done(ParseObject object, ParseException e) {
+                name.setText(object.getString("username"));
+                phone.setText(object.getString("phone"));
+                mail.setText(object.getString("email"));
+                userEmail=object.getString("email");
+                ParseFile image=object.getParseFile("image");
+                image.getDataInBackground(new GetDataCallback() {
+                    @Override
+                    public void done(byte[] data, ParseException e) {
+                        if(e==null && data !=null){
+                            Bitmap map= BitmapFactory.decodeByteArray
+                                    (data,0,data.length);
+                            userimage.setImageBitmap(map);
+                        }
+                    }
+                });
+            }
+        });
     }
 
     public void editUserInfo(View view) {
@@ -53,27 +149,24 @@ public class MainTrainerScreen extends AppCompatActivity {
     // All Following method that connected with drawer menu items
     // (1) Home Item
     public void HomeItemClicked(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent backtoHome = new Intent(MainTrainerScreen.this,MainTrainerScreen.class);
+        startActivity(backtoHome);
     }
-    // (2) Update Account Info
-    public void UpdateAccountInfo(View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (3 ) SeeMyRequest
-    public void SeeMyRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
-    }
-    // (4 ) SeeMyRequest
+    // (2) SeeMyRequest
     public void SendSpecialRequest (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+        Intent moveTosend=new Intent(MainTrainerScreen.this,sendRequest.class);
+        moveTosend.putExtra("dir","random");
+        startActivity(moveTosend);
     }
-    // (5 ) ClickAboutUS
+    // (3) ClickAboutUS
     public void ClickAboutUS (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+       Intent about=new Intent(MainTrainerScreen.this,AboutUs.class);
+       startActivity(about);
     }
-    // (6 ) ClickLogout
+    // (4) ClickLogout
     public void ClickLogout (View view){
-        Toast.makeText(this, "Not Activated", Toast.LENGTH_SHORT).show();
+       Intent backTomain=new Intent(MainTrainerScreen.this,MainActivity.class);
+       startActivity(backTomain);
     }
 
     public void StartSearchingforCoach(View view) {
