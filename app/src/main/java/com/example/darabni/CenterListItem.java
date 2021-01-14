@@ -52,9 +52,9 @@ public class CenterListItem extends AppCompatActivity {
                         for(ParseObject center:objects){
                             //get Names ,address,id,phone
                             centerId.add(center.getObjectId().toString());
-                            centerNames.add(center.getString("centername"));
-                            centerAddress.add(center.getString("address"));
-                            centerPhones.add(center.getString("phone"));
+                            centerNames.add("Center name :"+center.getString("centername"));
+                            centerAddress.add("Address : "+center.getString("address"));
+                            centerPhones.add("Phone : "+center.getString("phone"));
                             arrayAdapter.notifyDataSetChanged();
                         }
                     }

@@ -28,7 +28,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Car Manufactor:"
+                android:text="This site was created to make it easier for people to learn to drive and find the right center,
+                 because this site contains a group of driving education centers."
                 android:textColor="#130400"
                 android:textStyle="bold"
                 android:fontFamily="@font/text3"

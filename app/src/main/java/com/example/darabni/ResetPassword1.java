@@ -35,7 +35,7 @@ public class ResetPassword1 extends AppCompatActivity {
         // Then move forward to second Reset Password Screen
         String codeResiver=emailOrphone.getText().toString();
         if(codeResiver.matches("")){
-            Toast.makeText(this, "Please Enter email or Phone", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Please Enter email ", Toast.LENGTH_SHORT).show();
         }else {
             if(codeResiver.contains("@")||codeResiver.contains(".com")){
                 Random random=new Random();

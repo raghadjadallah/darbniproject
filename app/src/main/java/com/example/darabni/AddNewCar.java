@@ -136,6 +136,7 @@ public class AddNewCar extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if(e==null){
+                    displayCoachList.coachListAdapter2.notifyDataSetChanged();
                     Intent goback=new Intent(AddNewCar.this,CenterMainScreen.class);
                     startActivity(goback);
                 }

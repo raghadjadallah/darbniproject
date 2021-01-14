@@ -98,8 +98,8 @@ public class TrainerSignup extends AppCompatActivity implements AdapterView.OnIt
             public void done(ParseException e) {
                 if (e == null) {
                     Toast.makeText(TrainerSignup.this, "Done trainer!", Toast.LENGTH_SHORT).show();
-                    finish();
-                    Log.i("info3","Go");
+                    Intent bebo=new Intent(TrainerSignup.this,MainActivity.class);
+                    startActivity(bebo);
                 } else {
                     Toast.makeText(TrainerSignup.this, "Somthing Worng !", Toast.LENGTH_SHORT).show();
                 }

@@ -45,10 +45,10 @@ public class showCoachInfoRelatedForCenter extends AppCompatActivity {
                             }
                         }
                     });
-                    name.setText(object.getString("name"));
-                    phone.setText(object.getString("phone"));
-                    address.setText(object.getString("address"));
-                    cost.setText(object.getString("cost"));
+                    name.setText("Coach Name : "+object.getString("name"));
+                    phone.setText("Coach Phone :"+object.getString("phone"));
+                    address.setText("Address :  "+object.getString("address"));
+                    cost.setText("Session Cost : "+object.getString("cost"));
                     carIdRelated2=object.getParseObject("car").getObjectId();
                 }
             }
@@ -113,7 +113,4 @@ public class showCoachInfoRelatedForCenter extends AppCompatActivity {
         startActivity(backTomain);
     }
 
-    public void cancelCarInfo2(View view) {
-        finish();
-    }
 }

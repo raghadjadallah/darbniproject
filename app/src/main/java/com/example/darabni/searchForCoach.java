@@ -40,9 +40,9 @@ public class searchForCoach extends AppCompatActivity {
             public void done(List<ParseObject> objects, ParseException e) {
                 if(objects!=null&&objects.size()>0&&e==null){
                     for (ParseObject coach:objects){
-                        coachNames.add(coach.getString("name"));
-                        coachPhones.add(coach.getString("phone"));
-                        coachSessionCost.add(coach.getString("cost"));
+                        coachNames.add("Name : "+coach.getString("name"));
+                        coachPhones.add("Phone : "+coach.getString("phone"));
+                        coachSessionCost.add("Session Cost : "+coach.getString("cost"));
                         coachId.add(coach.getObjectId());
                         coachListAdapter.notifyDataSetChanged();
                     }

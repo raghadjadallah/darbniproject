@@ -42,15 +42,14 @@ public class CarInfo extends AppCompatActivity {
                             }
                         }
                     });
-                    manufactor.setText(object.getString("manufactor"));
-                    type.setText(object.getString("modelname"));
-                    model.setText(object.getString("model"));
-                    gear.setText(object.getString("gear"));
+                    manufactor.setText("Manufactor Brand :  "+object.getString("manufactor"));
+                    type.setText("Type :"+object.getString("modelname"));
+                    model.setText("Model :  "+object.getString("model"));
+                    gear.setText("GearBox  : "+object.getString("gear"));
                 }
             }
         });
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

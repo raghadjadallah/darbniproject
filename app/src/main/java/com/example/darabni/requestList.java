@@ -30,7 +30,8 @@ public class requestList extends AppCompatActivity {
     ListView request;
     ArrayList<String>senderNames,senderPhone,requestId;
     DrawerLayout screendrawer;
-    ArrayAdapter reviewListAdapter;
+    String directions;
+    public static ArrayAdapter reviewListAdapter;
     public void getUserInfo(String objectId){
         ParseQuery<ParseObject>user=ParseQuery.getQuery("Trainee");
         user.getInBackground(objectId, new GetCallback<ParseObject>() {
@@ -82,12 +83,14 @@ public class requestList extends AppCompatActivity {
         senderNames=new ArrayList<String>();
         senderPhone =new ArrayList<String>();
         requestId=new ArrayList<String>();
-        Intent getter=getIntent();
-        String directions=getter.getStringExtra("key");
-        if(directions.equals("custom")){
-            getCustomRequest();
-        }else {
-            getRandomRequest();
+        if (this.getIntent().getExtras() != null && this.getIntent().getExtras().containsKey("key")){
+            Intent getter=getIntent();
+            directions =getter.getStringExtra("key");
+            if(directions.equals("custom")){
+                getCustomRequest();
+            }else {
+                getRandomRequest();
+            }
         }
         reviewListAdapter=new ArrayAdapter(requestList.this,R.layout.requestlistdesign
                 ,R.id.tvn,senderNames){

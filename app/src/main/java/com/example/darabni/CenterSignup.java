@@ -59,10 +59,6 @@ public class CenterSignup extends AppCompatActivity implements AdapterView.OnIte
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_layout);
         selectAddress.setAdapter(adapter);
         selectAddress.setOnItemSelectedListener(this);
-        //spinnerAdapter=new ArrayAdapter
-              //  (CenterSignup.this, android.R.layout.simple_list_item_1,city_name_list);
-       // selectAddress.setPrompt("Select Address from here ");
-        //selectAddress.setAdapter(spinnerAdapter);
         selectAddress.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -152,7 +148,8 @@ public class CenterSignup extends AppCompatActivity implements AdapterView.OnIte
 
                                 if (e == null) {
                                     Toast.makeText(CenterSignup.this, "Done!", Toast.LENGTH_SHORT).show();
-                                    finish();
+                                    Intent bebo=new Intent(CenterSignup.this,MainActivity.class);
+                                    startActivity(bebo);
                                 } else {
                                     Toast.makeText(CenterSignup.this, "Somthing Worng !", Toast.LENGTH_SHORT).show();
                                 }

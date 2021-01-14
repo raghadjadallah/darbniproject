@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
     android:background="@drawable/dg4"
     tools:context=".CenterSignup">
@@ -47,6 +46,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:layout_marginLeft="5dp"
             android:text="Center Name :"
             android:textStyle="bold"
             android:textSize="9pt"
@@ -61,7 +61,7 @@
             android:inputType="text"
             android:textColor="#130400"
             app:bootstrapBrand="info"
-            app:bootstrapSize="md"
+            app:bootstrapSize="xl"
 
             />
         <TextView
@@ -69,6 +69,7 @@
             android:layout_height="wrap_content"
             android:text="Center Address :"
             android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
             android:textSize="9pt"
             android:textStyle="bold"
             android:fontFamily="@font/text3"
@@ -84,6 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Center Phone : "
+            android:layout_marginLeft="5dp"
             android:textColor="#130400"
             android:textSize="9pt"
             android:layout_marginTop="10dp"
@@ -106,6 +108,7 @@
             android:layout_height="wrap_content"
             android:text="License Number : "
             android:textColor="#130400"
+            android:layout_marginLeft="5dp"
             android:textSize="9pt"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/text3"

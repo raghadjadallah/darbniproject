@@ -27,7 +27,7 @@ import java.util.List;
 public class displayCoachList extends AppCompatActivity {
     ListView coachList;
     DrawerLayout screendrawer;
-    ArrayAdapter coachListAdapter2;
+    public static ArrayAdapter coachListAdapter2;
     ArrayList<String>coachNames1,coachSessionCost1,coachPhones1,coachId1;
     public void getCoachList(String logincenterId){
         ParseQuery<ParseObject> coachQuery=ParseQuery.getQuery("Coach");
@@ -37,9 +37,9 @@ public class displayCoachList extends AppCompatActivity {
             public void done(List<ParseObject> objects, ParseException e) {
                 if(objects!=null && e==null){
                     for(ParseObject coach:objects){
-                        coachNames1.add(coach.getString("name"));
-                        coachPhones1.add(coach.getString("phone"));
-                        coachSessionCost1.add(coach.getString("cost"));
+                        coachNames1.add("Coach name : "+coach.getString("name"));
+                        coachPhones1.add("Phone "+coach.getString("phone"));
+                        coachSessionCost1.add("Session Cost : "+coach.getString("cost"));
                         coachId1.add(coach.getObjectId());
                         coachListAdapter2.notifyDataSetChanged();
                     }

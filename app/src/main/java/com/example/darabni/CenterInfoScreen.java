@@ -23,7 +23,6 @@ import java.util.List;
 
 public class CenterInfoScreen extends AppCompatActivity {
     ListView centerListInfo;
-
     ArrayList<String>centerName, centerAddress, centerId, centerPhone;
     ArrayAdapter centerInfoList;
 

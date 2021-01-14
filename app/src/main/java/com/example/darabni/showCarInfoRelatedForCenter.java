@@ -43,10 +43,10 @@ public class showCarInfoRelatedForCenter extends AppCompatActivity {
                             }
                         }
                     });
-                    manufactor.setText(object.getString("manufactor"));
-                    type.setText(object.getString("modelname"));
-                    model.setText(object.getString("model"));
-                    gear.setText(object.getString("gear"));
+                    manufactor.setText("Manufactor :"+object.getString("manufactor"));
+                    type.setText("Type : "+object.getString("modelname"));
+                    model.setText("Model : "+object.getString("model"));
+                    gear.setText("GearBox : "+object.getString("gear"));
                 }
             }
         });
@@ -93,5 +93,9 @@ public class showCarInfoRelatedForCenter extends AppCompatActivity {
     public void AdminClickLogout (View view){
         Intent backTomain=new Intent(showCarInfoRelatedForCenter.this,MainActivity.class);
         startActivity(backTomain);
+    }
+
+    public void cancelCarInfoView(View view) {
+        finish();
     }
 }

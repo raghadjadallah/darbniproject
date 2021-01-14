@@ -49,7 +49,7 @@ public class ReviewContent extends AppCompatActivity {
                 }
             }
         });
-       }
+     }
     public void process(View view) {
         Intent moveToManageScreen=new Intent
                 (ReviewContent.this,manageCenter.class);

@@ -11,14 +11,18 @@ import android.widget.Toast;
 
 public class CenterMainScreen extends AppCompatActivity {
     DrawerLayout screendrawer;
-    public static String objectId;
+    public static String objectId="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_center_main_screen);
         screendrawer=(DrawerLayout)findViewById(R.id.drawerCenterMain);
-        Intent rec=getIntent();
-        objectId=rec.getStringExtra("oid");
+        String toto="null";
+        if (this.getIntent().getExtras() != null && this.getIntent().getExtras().containsKey("oid")){
+            Intent rec=getIntent();
+            toto=rec.getStringExtra("oid");
+            objectId=toto;
+        }
     }
     //Drawer Mange Methods
     public void onMenuClicked(View view) {

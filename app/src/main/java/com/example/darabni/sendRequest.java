@@ -82,7 +82,8 @@ public class sendRequest extends AppCompatActivity {
                 @Override
                 public void done(ParseException e) {
                     if (e == null) {
-                        finish();
+                        Intent bebo=new Intent(sendRequest.this,MainTrainerScreen.class);
+                        startActivity(bebo);
                     }
                 }
             });
@@ -98,7 +99,8 @@ public class sendRequest extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if(e==null){
-                    finish();
+                    Intent bebo=new Intent(sendRequest.this,MainTrainerScreen.class);
+                    startActivity(bebo);
                 }
             }
         });

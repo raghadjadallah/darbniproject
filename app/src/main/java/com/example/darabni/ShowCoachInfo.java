@@ -43,12 +43,11 @@ public class ShowCoachInfo extends AppCompatActivity {
                             }
                         }
                     });
-                    name.setText(object.getString("name"));
-                    phone.setText(object.getString("phone"));
-                    address.setText(object.getString("address"));
-                    cost.setText(object.getString("cost"));
+                    name.setText("Coach name : "+object.getString("name"));
+                    phone.setText("Coach Phone : "+object.getString("phone"));
+                    address.setText("Coach Address : "+object.getString("address"));
+                    cost.setText("Session Cost :"+object.getString("cost"));
                     carId=object.getParseObject("car").getObjectId();
-                    Log.i("car",carId);
                 }
 
             }

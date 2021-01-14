@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="10pt"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10pt"
         android:textColor="@color/black"
         android:text="Center name : "/>
@@ -30,8 +31,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="10pt"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10pt"
-        android:text="Problem Type "
+        android:text="Problem Type :"
         android:textColor="@color/black"/>
     <TextView
         android:id="@+id/ttv2"
@@ -48,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="10pt"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10pt"
         android:text="Description : "
         android:textColor="@color/black"/>

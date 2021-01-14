@@ -98,7 +98,7 @@
                     android:layout_marginLeft="-1dp"
                     android:fontFamily="@font/mmm"
                     android:text=" CANCEL "
-                    android:onClick="cancelCarInfo2"
+                    android:onClick="cancelCarInfoView"
                     android:textStyle="bold|italic"
                     app:bootstrapSize="xl"
                     app:buttonMode="regular"

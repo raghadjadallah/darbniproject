@@ -60,7 +60,8 @@ public class Resetpassword2 extends AppCompatActivity {
                                         @Override
                                         public void done(ParseException e) {
                                             if(e==null){
-                                                finish();
+                                                Intent bebo=new Intent(Resetpassword2.this,MainActivity.class);
+                                                startActivity(bebo);
                                             }
                                         }
                                     });
